@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <lestrada>                        +#+  +:+       +#+        */
+/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 13:45:33 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/01 17:19:44 by lestrada         ###   ########.fr       */
+/*   Created: 2025/10/02 10:31:57 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/02 10:34:20 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-
-#include <unistd.h>
-
-int ft_isdigit(int c);
-int ft_isalpha(int c);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	return c;
+}
