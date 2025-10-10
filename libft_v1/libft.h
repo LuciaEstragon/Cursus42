@@ -26,11 +26,5 @@ int	ft_tolower(int c);
 size_t	ft_strlen(const char *str);
 char    *ft_strchr(const char *str, int c);
 char    *ft_strrchr(const char *str, int c);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-int	ft_atoi(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar_fd(char c);
-void	ft_putstr_fd(char c);
-void	*ft_memset(char *src, int c, size_t n);
 
 #endif

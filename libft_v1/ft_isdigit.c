@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 08:03:10 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/06 08:15:05 by lestrada         ###   ########.fr       */
+/*   Created: 2025/09/30 15:39:00 by lestrada          #+#    #+#             */
+/*   Updated: 2025/09/30 16:26:21 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memcpy(void *dest, const void *src, size_t n)
+int	ft_isdigit(int c)
 {
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0' && i < n)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

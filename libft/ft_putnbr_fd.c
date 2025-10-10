@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memchr.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 08:16:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/06 08:24:54 by lestrada         ###   ########.fr       */
+/*   Created: 2025/07/03 19:25:02 by lestrada          #+#    #+#             */
+/*   Updated: 2025/07/03 20:55:50 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*memchr(const void *scr, int c, size_t n)
-{
-	int	i;
+#include <unistd.h>
 
-	i = 0;
-	while (scr[i] != '\0' || i <= n)
+void	ft_putnbr(int nb)
+{
+	char	c;
+
+	c = '0';
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	if (nb < 0)
 	{
-		if (src[i] = c)
-			return(void()*src);
-		i++;
+		write(1, "-", 1);
+		nb = nb * (-1);
 	}
-	return (void*(0));
+	if (nb > 10)
+		ft_putnbr(nb / 10);
+	c = (nb % 10) + '0';
+	write(1, &c, 1);
 }

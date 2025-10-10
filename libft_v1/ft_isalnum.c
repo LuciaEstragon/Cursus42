@@ -10,27 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_IS_H
-# define LIBFT_IS_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stddef.h>
-
-int	ft_isdigit(int c);
-int	ft_isalpha(int c);
-int	ft_isalnum(int c);
-int	ft_isascii(int c);
-int	ft_isprint(int c);
-int	ft_toupper(int c);
-int	ft_tolower(int c);
-size_t	ft_strlen(const char *str);
-char    *ft_strchr(const char *str, int c);
-char    *ft_strrchr(const char *str, int c);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-int	ft_atoi(char *str);
-void	ft_putnbr(int nb);
-void	ft_putchar_fd(char c);
-void	ft_putstr_fd(char c);
-void	*ft_memset(char *src, int c, size_t n);
-
-#endif
+int	ft_isalnum(int c)
+{
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return(0);		
+}

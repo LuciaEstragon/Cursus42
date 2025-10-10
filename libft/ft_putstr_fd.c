@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 10:20:01 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/02 10:27:08 by lestrada         ###   ########.fr       */
+/*   Created: 2025/07/03 19:15:14 by lestrada          #+#    #+#             */
+/*   Updated: 2025/07/03 20:54:09 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <unistd.h>
+
+void	ft_putstr(char *str)
 {
-	if ((c >= 32 && c <= 126))
-		return (1);
-	return (0);
+	while (*str != '\0')
+	{
+		write(1, str, 1);
+		str++;
+	}
 }

@@ -7,13 +7,8 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
 # Archivos fuente
-SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c \
-	ft_strlen.c ft_strchr.c ft_strrchr.c ft_strlcpy.c ft_strnstr.c \
-	ft_atoi.c ft_putnbr_fd.c  ft_putstr_fd.c  ft_putchar_fd.c \
-	ft_memset.c 
-	
+SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c ft_strlen.c ft_strchr.c ft_strrchr.c
 OBJS = $(SRCS:.c=.o)
-LIBS = unistd.h stddef.h libft.h
 
 # Archivos de entrada
 # FILES = dic.txt
@@ -26,7 +21,7 @@ $(EXEC): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
 
 # Regla para compilar los archivos .c en .o
-%.o: %.c $(LIBS)
+%.o: %.c unistd.h libft.h
 	$(CC) $(CFLAGS) -c $<
 
 # Regla para limpiar todo, incluyendo el ejecutable
@@ -48,6 +43,6 @@ lib:
 	ar rcs $(NAME) $(OBJS)
 
 nor:
-	norminette -R CheckForbiddenSourceHeader
+	norminette -R check
 
 .PHONY: all clean fclean run re lib nor
