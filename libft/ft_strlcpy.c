@@ -19,7 +19,7 @@
 *  NOTA: se copia el tamaño - el caracter nulo, es decir: 
 *       dest[10] = src[9]+\0
  */
- 
+
 #include <stddef.h>
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
@@ -30,21 +30,15 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	len = 0;
 	while (src[len] != '\0')
 		len++;
-	
 	i = 0;
-	/*while (i < size && src[i] != '\0')
+	if (size > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		while (i < size - 1 && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	dest[i] = '\0';*/
-	
-	if (size > 0) {
-        while (i < size - 1 && src[i] != '\0') {
-            dest[i] = src[i];
-            i++;
-        }
-        dest[i] = '\0';
-    }
 	return (len);
 }

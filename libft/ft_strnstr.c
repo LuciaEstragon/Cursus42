@@ -1,52 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:06:26 by lestrada          #+#    #+#             */
-/*   Updated: 2025/07/01 13:48:13 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:45:44 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
-int	str_len(char *src);
-
-char	*ft_strstr(char *str, char *to_find)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	ind;
-	int	ind_check;
-	int	sub_ind;
+	size_t	ind;
+	size_t	ind_check;
+	size_t	sub_ind;
+	char	*big_ptr;
 
+	big_ptr = (char*)big;
 	ind = 0;
-	while (to_find[ind] == '\0')
+	while (little[ind] == '\0')
 	{
-		return (str);
+		return (big_ptr);
 	}
-	while (str[ind] != '\0')
+	while (big_ptr[ind] != '\0' && ind < len)
 	{
 		ind_check = ind;
 		sub_ind = 0;
-		while (str[ind_check] == to_find[sub_ind])
+		while (big_ptr[ind_check] == little[sub_ind])
 		{
 			sub_ind++;
 			ind_check++;
-			if (to_find[sub_ind] == '\0')
-				return (&str[ind]);
+			if (little[sub_ind] == '\0')
+				return (&big_ptr[ind]);
 		}
 		ind++;
 	}
 	return (NULL);
-}
-
-int	str_len(char *src)
-{
-	int	len;
-
-	len = 0;
-	while (src[len] != '\0')
-		len++;
-	return (len);
 }

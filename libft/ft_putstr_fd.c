@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	while (*str != '\0')
+	while (*s != '\0')
 	{
-		write(1, str, 1);
-		str++;
+		write(fd, s, 1);
+		s++;
 	}
 }

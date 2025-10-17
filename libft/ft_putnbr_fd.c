@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:25:02 by lestrada          #+#    #+#             */
-/*   Updated: 2025/07/03 20:55:50 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/16 17:41:04 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putnbr(int nb)
+void	ft_putnbr_fd(int nb, int fd)
 {
 	char	c;
 
-	c = '0';
+	//c = '0';
 	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
 	if (nb < 0)
 	{
-		write(1, "-", 1);
+		write(fd, "-", 1);
 		nb = nb * (-1);
 	}
-	if (nb > 10)
-		ft_putnbr(nb / 10);
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
 	c = (nb % 10) + '0';
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
