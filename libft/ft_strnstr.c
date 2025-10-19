@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	sub_ind;
 	char	*big_ptr;
 
-	big_ptr = (char*)big;
+	big_ptr = (char *)big;
 	ind = 0;
 	while (little[ind] == '\0')
 	{

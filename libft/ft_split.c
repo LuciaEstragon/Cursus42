@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,101 +10,128 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
 #include "libft.h"
+ /*
+ * Ejemplo de uso: s-".Hola....q.ue t...al"
+ * ft_split va a crear un string **result=[Hola][q][ue t][al]
+ *
+ * 1º Cuentas el numero de palabras count_words(), metodo que encuentra flancos.
+ * 2º Bucle para rellenar cada palabra con sus letras.
+ *
+ * Como es un doble puntero necesitas dos mallocs
+ * 
+*/
+int	count_words(char const *s, char c);
+int	len_words(char const *s, char c);
+char	fill_words(char const *s, char c);
 
-int f_count_pal(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	int ind;
-	int count_pal;
-	int flag;
+	char	**result;
+	int		total_word;
+	int		ind_words;
+	int		ind;
+
+	total_word = count_words(s, c);
+	result = (char **)calloc(total_word + 1, sizeof(char *));
+	if (!result)
+		return (0);
+	ind_words = 0;
+	while (ind_words < total_word)
+	{
+		fill_words(s, c);
+		ft_memcpy(*result[ind_words], fill_words(s, c)); 
+		ind_words++;
+	}
+	result[ind_words] = '\0';
+	return(*result);
+}    
+
+int	count_words(char const *s, char c)
+{
+	int	ind;
+	int	count;
+	int	flag;
 
 	ind = 0;
-	count_pal = 0;
+	count = 0;
 	flag = 0;
-	while(s[ind] != '\0')
+	while (s[ind] != '\0')
 	{
-		if(s[ind] != c && flag==0)
+		if (s[ind] != c && flag==0)
 		{
 			flag = 1;
-			count_pal ++;
+			count ++;
 		}
-		if(s[ind] == c && flag==1)
+		if (s[ind] == c && flag==1)
 			flag = 0;
 		ind++;
 	}
-	return(count_pal);
+	return (count);
 }
 
-char **ft_split(char const *s, char c)
+int	len_words(char const *s, char c)
 {
-////funcion que cuenta palabras
-	int count_pal;
+	int	ind;
+	int	count;
 
-	count_pal = f_count_pal(s, c);
-////
-	char dst1[10] = {0};
-	const char *got;
-	int len;
-	char **result;
-	int d_count=0;
-	
-	result = (char**)calloc(count_pal + 1, sizeof(char*));
-		if(!result)
-			return(0);
-while(d_count < count_pal)
-{
-		got = ft_strchr(s, c);
-		len = ft_strlen(s) - ft_strlen(got) + 1;
-		ft_strlcpy(dst1, s, len);
-		if (len > 1)
-		{
-			int i = 0;
-			result[d_count] = (char*)malloc(ft_strlen(dst1) + 1);
-			while (dst1[i] != '\0')
-			{
-				result[d_count][i] = dst1[i];
-				i++;
-			} 
-			result[d_count][i+1] = '\0';
-			d_count++;
-		}
-		if(d_count < count_pal)
-		{
-			got++;
-			s = ft_strdup(got);
-		}
+	ind = 0;
+	count = 0;
+	while (s[ind] != c)
+		count ++;
+	return (count);
 }
-	//result[d_count+1] = '\0';
-	return(result);
-}    
 
-/*
-#include <string.h>
+char	fill_words(char const *s, char c)
+{
+	char *dest;
+	int ind;
+	int		len_word;
+
+	ind = 0;
+	if (s[ind] != c)
+	{
+		len_word = len_words(s, c);
+		dest = (char *)malloc(len_word + 1);
+		if (!result)
+			return (0);
+		while (s[ind] != c)
+		{
+			dest[ind] = s[ind];
+			ind++;
+		} 
+		dest[ind] = '\0';
+	}
+	else
+		ind++;
+	return (dest);
+}
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{	
-		char *s = "hola..que..tal.";
-		char c = '.';
+void imprimir_matriz_char(char **matriz, int filas) {
+    for (int i = 0; i < filas; i++) {
+        // Usa %s para imprimir la cadena completa a la que apunta matriz[i]
+        printf("%s\n", matriz[i]);
+    }
+}
 
-		ft_split(s, c)
-	printf("\n");
-	int j=0, i;
-	while(j < f_count_pal(s, c))
-	{
-		i = 0;
-		 while (result[j][i] != '\0')
-		 {
-		printf("%c", result[j][i]);
-		i++;
-		 }
-		 printf("\n");
-		j++;
-	}
+int main() {
+    // Definición de una matriz de punteros a char
+    char *s = "hola..que..tal.";
+    char c = '.';
+	char **mi_matriz;
 
+	mi_matriz = ft_split(s, c);
+	
+    // Asignación de cadenas a cada puntero
+    printf("Imprimiendo la matriz de cadenas:\n");
+    imprimir_matriz_char(mi_matriz, filas);
 
-	return 0;
-}*/
+    // Liberar la memoria asignada
+    free(mi_matriz);
+
+    return 0;
+}

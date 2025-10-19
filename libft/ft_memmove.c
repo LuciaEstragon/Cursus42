@@ -33,37 +33,76 @@
 	}
 	while (i < n)
 	{
-                ptr_dest[i] = ptr_aux[i];
+				ptr_dest[i] = ptr_aux[i];
 		i++;
 	}
-	ptr_dest[i] = '\0';
+	//ptr_dest[i] = '\0';
 	return (ptr_dest);
 }*/
+/*
+void	*ft_memmove(void *dest, const void *src, size_t n)
+{
+	unsigned char	*ptr_dest;
+	unsigned char	*ptr_src;
+
+	ptr_dest = (unsigned char *)dest;
+	ptr_src = (unsigned char*)src;
+	if (ptr_dest == ptr_src || n == 0)
+		return (dest);
+	if (!ptr_dest && !ptr_src)
+		return (NULL);
+	if (ptr_dest < ptr_src)
+	{
+		while (n--)
+		{
+			*ptr_dest++ = *ptr_src++;
+		}
+	}
+	else
+	{
+		ptr_dest += n;
+		ptr_src += n;
+		while (n--)
+		{
+			*ptr_dest-- = *ptr_src--;
+		}
+	}
+	return (dest);
+}*/
+
+#include <stddef.h>
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*ptr_dest;
 	unsigned char	*ptr_src;
 
-	ptr_dest = (unsigned char*)dest;
-	ptr_src = (unsigned char*)src;
+	ptr_dest = (unsigned char *)dest;
+	ptr_src = (unsigned char *)src;
+	if (!ptr_dest && !ptr_src)
+		return (NULL);
+	if (ptr_dest > ptr_src)
+	{
+		while (n > 0)
+		{
+			n--;
+			ptr_dest[n] = ptr_src[n];
+		}
+	}
+	else if (ptr_dest < ptr_src)
+	{
+		while (n--)
+		{
+			*ptr_dest++ = *ptr_src++;
+		}
+	}
+	return (dest);
+}
+
+/*
+Las condiciones que no te miran los else if seria:
 	if (ptr_dest == ptr_src || n == 0)
 		return (dest);
-	if ( ptr_dest < ptr_src)
-	{
-	while (n--)
-	{
-		*ptr_dest++ = *ptr_src++;
-	}
-	}
-	else
-	{
-	ptr_dest += n;
-	ptr_src += n;
-	while (n--)
-	{
-                *ptr_dest-- = *ptr_src--;
-	}
-	}
-	return (ptr_dest);
-}
+
+*/
+
