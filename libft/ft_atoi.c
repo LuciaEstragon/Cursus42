@@ -6,13 +6,13 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 19:35:26 by lestrada          #+#    #+#             */
-/*   Updated: 2025/07/03 21:36:54 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/21 21:57:29 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	size_t	ind;
 	int		neg;
