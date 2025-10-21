@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lestrada <lestrada>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 15:25:51 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 11:30:23 by lestrada         ###   ########.fr       */
+/*   Created: 2025/10/01 13:45:33 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/01 17:19:44 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-	while (*s != '\0')
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
 	return (0);
 }

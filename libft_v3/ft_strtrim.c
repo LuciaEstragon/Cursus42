@@ -6,7 +6,7 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 09:02:26 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/20 20:50:25 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:12:23 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = ft_comprueba_inicio((char *)s1, (char *)set);
 	if (start >= ft_strlen((char *)s1))
-		return (ft_strdup(""));
+		return (NULL);
 	end = ft_comprueba_fin((char *)s1, (char *)set);
 	len = end - start + 1;
 	result = (char *)malloc(len);
@@ -54,7 +54,6 @@ int	ft_comprueba_inicio(char *s1, char *set)
 			{
 				flag = 1;
 				j++;
-				break ;
 			}
 			ind++;
 		}
@@ -82,7 +81,6 @@ int	ft_comprueba_fin(char *s1, char *set)
 			{
 				flag = 1;
 				j--;
-				break ;
 			}
 			ind++;
 		}

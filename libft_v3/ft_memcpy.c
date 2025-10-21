@@ -6,7 +6,7 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 08:03:10 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 10:14:39 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/14 16:35:28 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char	*ptr_src;
 	char	*ptr_dest;
 
-	if (n == 0)
-		return (dest);
-	if (dest == NULL && src == NULL)
-		return (dest);
+	if (!dest && !src && !n)
+		return (NULL);
 	ptr_dest = (char *)dest;
 	ptr_src = (char *)src;
 	i = 0;

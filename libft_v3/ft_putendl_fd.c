@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 15:25:51 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 11:30:23 by lestrada         ###   ########.fr       */
+/*   Created: 2025/10/16 17:42:21 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/16 18:00:18 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+#include "libft.h"
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	while (*s != '\0')
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
-	return (0);
+	ft_putstr_fd(s, fd);
+	write(fd, "\n", 1);
 }

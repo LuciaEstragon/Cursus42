@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 08:03:10 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 10:14:39 by lestrada         ###   ########.fr       */
+/*   Created: 2025/07/03 19:25:02 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/16 17:41:04 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include <unistd.h>
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	size_t	i;
-	char	*ptr_src;
-	char	*ptr_dest;
+	char	c;
 
-	if (n == 0)
-		return (dest);
-	if (dest == NULL && src == NULL)
-		return (dest);
-	ptr_dest = (char *)dest;
-	ptr_src = (char *)src;
-	i = 0;
-	while (i < n)
+	if (nb == -2147483648)
 	{
-		ptr_dest[i] = ptr_src[i];
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (ptr_dest);
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = nb * (-1);
+	}
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	c = (nb % 10) + '0';
+	write(fd, &c, 1);
 }

@@ -6,9 +6,19 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 19:38:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 11:33:06 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/06/26 18:08:48 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ *len = strlcpy(dest, src, sizeof(dest));
+ *Longitud de la cadena original size_scr = len
+ *if (size_dest == len ) ==> la cadena se copio de forma exitosa
+ *if (size_dest != len ) ==> la cadena fue truncada
+*
+*  NOTA: se copia el tamaño - el caracter nulo, es decir: 
+*       dest[10] = src[9]+\0
+ */
 
 #include <stddef.h>
 

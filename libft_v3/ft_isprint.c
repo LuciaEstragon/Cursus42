@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/02 15:25:51 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 11:30:23 by lestrada         ###   ########.fr       */
+/*   Created: 2025/10/02 10:20:01 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/02 10:27:08 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+int	ft_isprint(int c)
 {
-	while (*s != '\0')
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if ((char)c == '\0')
-		return ((char *)s);
+	if ((c >= 32 && c <= 126))
+		return (1);
 	return (0);
 }

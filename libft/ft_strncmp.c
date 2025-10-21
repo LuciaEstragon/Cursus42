@@ -6,19 +6,31 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 09:02:26 by lestrada          #+#    #+#             */
-/*   Updated: 2025/06/30 18:16:58 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:48:38 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
+#include <stddef.h>
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+
+	if (n == 0)
+		return (0);
+	if (s1 == NULL && s2 == NULL)
+		return (0);
+	if (s1 == NULL)
+		return (0 -(unsigned char)*s2);
+	if (s2 == NULL)
+		return ((unsigned char)*s1 - 0);
 	i = 0;
 	while (i < n)
 	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0')
+			return (0);
 		i++;
 	}
 	return (0);

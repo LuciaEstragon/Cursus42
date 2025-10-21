@@ -3,79 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 07:56:07 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/10 15:27:06 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/20 20:31:36 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putnbr_count(int nb, int count);
-char	*ft_putnbr_string(int nb, char *str, int len);
-void	especial_strlcat(char *dest, size_t dest_size, char c);
+int		digit_count(int nb);
 
 char	*ft_itoa(int n)
 {
-	if(!n)
-		return (NULL);
 	char	*str;
-	int		size;
+	int		len_nmb;
+	long	nb;
 
-	size = 0;
-	size = ft_putnbr_count(n, size);
-	str = (char *)malloc(size * sizeof(char*));
-	if(!str)
+	nb = n;
+	len_nmb = digit_count(nb);
+	str = (char *)ft_calloc(sizeof(char), (len_nmb + 1));
+	if (!str)
 		return (NULL);
-	str = ft_putnbr_string(n, str, size);
+	if (nb < 0)
+	{
+		str[0] = '-';
+		nb = -nb;
+	}
+	else if (nb == 0)
+		str[0] = '0';
+	while (nb != 0)
+	{
+		len_nmb--;
+		str[len_nmb] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
 	return (str);
 }
 
-int	ft_putnbr_count(int nb, int count)
+int	digit_count(int nb)
 {
-	count++;
-	if (nb == -2147483648)
-		nb = -2147483647;
-	if (nb < 0)
+	int		count;
+
+	count = 0;
+	if (nb <= 0)
+		count = 1;
+	while (nb != 0)
 	{
-		count ++;
-		nb = nb * (-1);
-	}
-	while (nb >= 10)
-	{
-		nb = nb / 10;
 		count++;
+		nb = nb / 10;
 	}
 	return (count);
-}
-
-char	*ft_putnbr_string(int nb, char *str, int len)
-{
-	char	c;
-
-	if (nb == -2147483648)
-	{
-		str = "-2147483648";
-		return (str);
-	}
-	if (nb < 0)
-	{
-		especial_strlcat(str, len+1, '-');
-		nb = nb * (-1);
-	}
-	if (nb >= 10)
-		ft_putnbr_string(nb / 10, str, len);
-	c = (nb % 10) + '0';
-	especial_strlcat(str, len+1, c);
-	return (str);
-}
-
-void	especial_strlcat(char *dest, size_t dest_size, char c)
-{
-	if (ft_strlen(dest) < dest_size - 1) 
-	{
-		dest[ft_strlen(dest)] = c;
-		dest[ft_strlen(dest) + 1] = '\0';
-	}
 }
