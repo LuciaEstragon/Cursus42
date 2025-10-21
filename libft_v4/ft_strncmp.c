@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 19:38:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 21:24:56 by lestrada         ###   ########.fr       */
+/*   Created: 2025/06/24 09:02:26 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/21 10:48:38 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	len;
 	size_t	i;
 
-	len = ft_strlen(src);
+	if (n == 0)
+		return (0);
+	if (s1 == NULL && s2 == NULL)
+		return (0);
+	if (s1 == NULL)
+		return (0 -(unsigned char)*s2);
+	if (s2 == NULL)
+		return ((unsigned char)*s1 - 0);
 	i = 0;
-	if (size > 0)
+	while (i < n)
 	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		if (s1[i] == '\0')
+			return (0);
+		i++;
 	}
-	return (len);
+	return (0);
 }

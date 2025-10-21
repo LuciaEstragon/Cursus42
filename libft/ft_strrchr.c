@@ -3,32 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lestrada <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 18:15:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/02 18:24:55 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/21 18:33:21 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-/*
-char    *ft_strrchr(const char *str, int c)
-{
-	int	count;
-	   
-	count = ft_strlen(str);
-	str = str + count;
-	while (*str != c && count != 0)
-	{
-		str--;
-		count--;
-	}
-	return ((void*)str);
-}
-*/
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*last = NULL;
+	const char	*last = 0;
 
 	while (*s != '\0')
 	{

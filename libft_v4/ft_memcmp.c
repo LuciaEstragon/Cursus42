@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 19:38:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 21:24:56 by lestrada         ###   ########.fr       */
+/*   Created: 2025/06/24 09:02:26 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/14 16:09:08 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
+#include <stdio.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	len;
 	size_t	i;
+	char	*ptr1;
+	char	*ptr2;
 
-	len = ft_strlen(src);
+	ptr1 = (char *)s1;
+	ptr2 = (char *)s2;
 	i = 0;
-	if (size > 0)
+	while (i < n)
 	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		if ((unsigned char)ptr1[i] != (unsigned char)ptr2[i])
+			return ((unsigned char)ptr1[i] - (unsigned char)ptr2[i]);
+		i++;
 	}
-	return (len);
+	return (0);
 }

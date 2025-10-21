@@ -6,20 +6,47 @@
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 15:06:26 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 10:57:37 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/21 21:19:47 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-* Es casi el mismo funcionamiento de strstr: encontrar un string dentro de str
+* It works almost exactly like strstr: find a string inside str
 *
-* En lo que se diferencian es que yo ahora solo comparo los primeros len.
-* Cuidado! En este caso: f(xxAAAAA, AAAAA, 5); da falso.
+* The difference is that I only compare the first len ​​values.
+* Caution! In this case: f(xxAAAAA, AAAAA, 5); returns false.
 */
 
-	//asi solo falla la prueba 10
+#include <string.h>
+#include <stdio.h>
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
+{
+	size_t	i;
+	size_t	j;
+
+	if (*little == '\0')
+		return ((char *)big);
+	i = 0;
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			if (little[j + 1] == '\0')
+				return ((char *)(big + i));
+			j++;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+/*
+MIA
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	ind;
@@ -31,9 +58,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	ind = 0;
 	if (little[ind] == '\0')
 		return (big_ptr);
-	if ((ft_strlen(little) > len))
+	if ((ft_strlen(little) > len) || len == 0)
 		return (NULL);
-	while (ind <= len - ft_strlen(little) && big_ptr[ind] != '\0')
+	while (ind < len - ft_strlen(little) && big_ptr[ind] != '\0')
 	{
 		ind_check = ind;
 		sub_ind = 0;
@@ -48,3 +75,27 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+*/
+/*
+
+#include <string.h>
+#include <stdio.h>
+
+int main()
+{
+	const char *str = "Hello worworld happy Lu";
+	const char *str2 = "world";
+
+	//char *result1 = strchr(str, '\0');  // 'e' se promueve a int
+	//char *result2 = strrchr(str, '\0');  // 'e' se promueve a int
+	char *result2 = ft_strnstr(str, str2, 0);  // 'e' se promueve a int
+	char *result3 = ft_strnstr(str, str2, 11);  // 'e' se promueve a int
+	char *result4 = ft_strnstr(str, str2, 15);  // 'e' se promueve a int
+	
+	//printf("result %s \n", result1);
+	printf("result %s \n", result2);
+	printf("result %s \n", result3);
+	printf("result %s \n", result4);
+	return(0);
+}
+*/

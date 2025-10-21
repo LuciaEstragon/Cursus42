@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/24 19:38:27 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 21:24:56 by lestrada         ###   ########.fr       */
+/*   Created: 2025/10/06 08:03:10 by lestrada          #+#    #+#             */
+/*   Updated: 2025/10/21 10:14:39 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	len;
 	size_t	i;
+	char	*ptr_src;
+	char	*ptr_dest;
 
-	len = ft_strlen(src);
+	if (n == 0)
+		return (dest);
+	if (dest == NULL && src == NULL)
+		return (dest);
+	ptr_dest = (char *)dest;
+	ptr_src = (char *)src;
 	i = 0;
-	if (size > 0)
+	while (i < n)
 	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		ptr_dest[i] = ptr_src[i];
+		i++;
 	}
-	return (len);
+	return (ptr_dest);
 }

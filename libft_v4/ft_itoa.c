@@ -1,27 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lestrada <lestrada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 07:56:07 by lestrada          #+#    #+#             */
-/*   Updated: 2025/10/21 21:50:32 by lestrada         ###   ########.fr       */
+/*   Updated: 2025/10/20 20:31:36 by lestrada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		digit_count(int nb);
+
+char	*ft_itoa(int n)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	char	*str;
+	int		len_nmb;
+	long	nb;
 
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	nb = n;
+	len_nmb = digit_count(nb);
+	str = (char *)ft_calloc(sizeof(char), (len_nmb + 1));
+	if (!str)
+		return (NULL);
+	if (nb < 0)
 	{
-		ptr[i] = '\0';
-		i++;
+		str[0] = '-';
+		nb = -nb;
 	}
+	else if (nb == 0)
+		str[0] = '0';
+	while (nb != 0)
+	{
+		len_nmb--;
+		str[len_nmb] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
+	return (str);
+}
+
+int	digit_count(int nb)
+{
+	int		count;
+
+	count = 0;
+	if (nb <= 0)
+		count = 1;
+	while (nb != 0)
+	{
+		count++;
+		nb = nb / 10;
+	}
+	return (count);
 }
