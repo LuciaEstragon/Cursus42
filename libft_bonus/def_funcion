@@ -1,0 +1,67 @@
+isalpha: Verifica si un carácter es una letra del alfabeto.
+
+isdigit: Comprueba si un carácter es un dígito numérico.
+
+isalnum: Determina si un carácter es alfanumérico (letra o número).
+
+isascii: Verifica si un carácter pertenece al conjunto ASCII.
+
+isprint: Comprueba si un carácter es imprimible (incluye espacio).
+
+toupper: Convierte un carácter a mayúsculas.
+
+tolower: Convierte un carácter a minúsculas.
+
+strlen: Calcula la longitud de una cadena de texto.
+
+memset: Llena un bloque de memoria con un valor específico.
+
+bzero: Establece a cero un bloque de memoria (similar a memset con 0).
+
+memcpy: Copia un bloque de memoria de un lugar a otro.
+
+memmove: Copia memoria de forma segura aunque las áreas se solapen.
+
+strlcpy: Copia cadenas de forma segura garantizando terminación nula.
+
+strlcat: Concatena cadenas de forma segura con longitud limitada.
+
+strchr: Busca la primera aparición de un carácter en una cadena.
+
+strrchr: Busca la última aparición de un carácter en una cadena.
+
+strncmp: Compara los primeros n caracteres de dos cadenas.
+
+memchr: Busca un carácter en un bloque de memoria.
+
+memcmp: Compara dos bloques de memoria.
+
+strnstr: Busca una subcadena dentro de otra con longitud limitada.
+
+atoi: Convierte una cadena numérica a un entero.
+
+calloc: Asigna memoria inicializada a cero para un array.
+
+strdup: Duplica una cadena asignando memoria dinámicamente.
+
+
+///  BONUS  ////
+
+ft_lstnew: Crea un nuevo nodo con el contenido proporcionado y next = NULL.
+
+ft_lstadd_front: Añade un nodo al principio de la lista, actualizando el puntero al primer nodo.
+
+ft_lstsize: Recorre la lista contando todos los nodos.
+
+ft_lstlast: Recorre la lista hasta encontrar el último nodo (cuando next es NULL).
+
+ft_lstadd_back: Añade un nodo al final de la lista, usando ft_lstlast para encontrar el último nodo.
+
+ft_lstdelone: Libera el contenido usando la función del y luego libera el nodo.
+
+ft_lstclear: Libera todos los nodos de la lista y establece el puntero a NULL.
+
+ft_lstiter: Aplica la función f al contenido de cada nodo.
+
+ft_lstmap: Crea una nueva lista aplicando la función f a cada elemento. Si falla la creación de algún nodo, libera toda la nueva lista creada hasta ese momento.
+
