@@ -1,0 +1,339 @@
+M7-ESP
+
+Aquí tienes la traducción completa del documento `m7.pdf` al español:
+
+[Nombre del archivo]: m7.pdf
+[Inicio del contenido del archivo]
+
+===== Página 1 =====
+
+# DataDeck - Arquitectura Abstracta de Cartas
+
+**Resumen:** Domina los patrones de diseño de Python con clases abstractas e interfaces construyendo un sistema de cartas modular.
+
+**Versión:** 3.0
+
+===== Página 2 =====
+
+1 Prólogo 2
+2 Instrucciones para la IA 3
+3 Introducción 5
+4 Instrucciones Generales 6
+5 Ejercicio 0: Fábrica de Criaturas 7
+6 Ejercicio 1: Capacidades 9
+7 Ejercicio 2: Estrategia Abstracta 11
+8 Entrega 14
+
+===== Página 3 =====
+
+2
+
+===== Página 4 =====
+
+1
+
+## Capítulo II
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta esté bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+Usa la IA para reducir tareas repetitivas o tediosas. Desarrolla habilidades de creación de prompts (tanto de programación como no programación) que beneficien tu carrera futura. Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos. Continúa construyendo habilidades tanto técnicas como interpersonales trabajando con tus compañeros. Utiliza únicamente contenido generado por IA que comprendas completamente y del cual puedas responsabilizarte.
+
+## Reglas del aprendiz:
+
+Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para que puedas usarlas éticamente y reducir sesgos potenciales. Debes reflexionar sobre tu problema antes de hacer prompts; esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso. Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA. Siempre debes buscar la revisión de pares; no te fíes únicamente de tu propia validación.
+
+===== Página 5 =====
+
+1
+
+## Resultados de la fase:
+
+Resultados de la fase: Desarrollar habilidades de creación de prompts tanto de propósito general como de dominio específico. Aumentar tu productividad con el uso efectivo de herramientas de IA. Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+Comentarios y ejemplos:
+- Regularmente te encontrarás con situaciones (exámenes, evaluaciones y más) donde debas demostrar comprensión real. Esté preparado, sigue construyendo tanto tus habilidades técnicas como interpersonales.
+- Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad.
+- Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer perspectivas más relevantes y precisas.
+- Mientras que la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación con pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad y fallo en mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico. Luego reviso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos: mejor, más limpio y completamente entendido.
+
+## Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías. Durante la evaluación, no puedo justificarlo y fallo en mi proyecto.
+
+===== Página 6 =====
+
+1
+
+## Capítulo III
+
+## Introducción
+
+¡Bienvenido, aspirante a Arquitecto de Mazos, al mundo de DataDeck!
+
+Imagina esto: estás diseñando un juego de cartas basado en criaturas, inspirado en populares juegos de colección de monstruos. Tus cartas no son solo objetos estáticos; son entidades de datos dinámicas que pueden agruparse en familias, y que tienen capacidades utilizadas de manera estratégica. Pero aquí está el desafío: ¿cómo crear un sistema lo suficientemente flexible como para manejar miles de tipos diferentes de cartas mientras se mantiene un código limpio y mantenible?
+
+¡El secreto reside en los Patrones de Programación Abstracta! Ya has manejado clases abstractas y polimorfismo en un proyecto anterior. Ahora usaremos patrones más avanzados: fábricas abstractas, capacidades adicionales y patrones de estrategia.
+
+En esta actividad, manipularás cartas del mundo de las Criaturas para practicar estos patrones avanzados. Al final, pensarás como un arquitecto senior, diseñando sistemas que puedan evolucionar y mejorar con el tiempo.
+
+===== Página 7 =====
+
+1
+
+## Capítulo IV
+
+## Instrucciones Generales
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe cumplir con el estándar de codificación flake8.
+- Todo el código debe incluir anotaciones de tipo completas. Verifica esto usando mypy.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas, excepto eval() y exec().
+- Tus funciones deben manejar las excepciones con elegancia para evitar fallos.
+- Las bibliotecas externas están prohibidas.
+
+[imagen[142, 574, 220, 628]]
+
+**PRERREQUISITOS:** Esta actividad requiere dominio de herencia en Python, clases abstractas, polimorfismo e importaciones. Sugerimos que completes los proyectos relacionados antes de este.
+
+Un archivo `__init__.py` es OBLIGATORIO para cada carpeta de ejercicio. Todo el código de prueba estará ubicado en la raíz del repositorio git.
+
+===== Página 8 =====
+
+## Capítulo V
+
+# Ejercicio 0: Fábrica de Criaturas
+
+| Ejercicio 0 | ex0 |
+|---|---|
+| Directorio: | ex0/ |
+| Archivos a entregar: | battle.py, ex0/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+Comencemos nuestro juego con la creación de cartas de Criatura básicas. Pero, como sabrás, las Criaturas se clasifican en varias familias y pueden evolucionar. Este ejercicio se centrará en el patrón de diseño de fábrica abstracta. Implementarás los siguientes elementos en la carpeta `ex0/`:
+
+- Una clase abstracta `Creature` que contiene atributos para el nombre y el tipo de la Criatura, un método abstracto `attack` y un método concreto genérico `describe` que devolverá un mensaje estándar usando el nombre y el tipo de la Criatura.
+- Las siguientes clases concretas que heredan de `Creature`: `Flameling`, `Pyrodon`, `Aquabub` y `Torragon`. Su método `attack` devolverá un mensaje de cadena apropiado (ver ejemplo).
+- Una clase abstracta `CreatureFactory` que te permitirá crear la Criatura base y la Criatura evolucionada para la misma familia, utilizando los métodos abstractos `create_base` y `create_evolved`.
+- Las clases concretas `FlameFactory` y `AquaFactory`, que heredan de `CreatureFactory`, que manejarán la creación de la Criatura base y evolucionada para cada familia (respectivamente `Flameling` y `Pyrodon` para `FlameFactory`, y `Aquabub` y `Torragon` para `AquaFactory`).
+- Tu paquete `ex0` no puede exponer `Creature` concretas directamente, solo debe exponer fábricas.
+
+El script `battle.py`, en la raíz del repositorio, probará el paquete `ex0`. Se implementará el siguiente escenario:
+
+===== Página 9 =====
+
+1
+
+- Instanciar las fábricas `Flameling` y `Aquabub`.
+- Usar una única función que recibe un objeto fábrica y verifica que puede crear la Criatura base y la evolucionada, y luego cada Criatura puede ser descrita y puede atacar.
+- Otra función que recibe ambas fábricas y hace que las Criaturas base luchen.
+
+[imagen[139, 227, 222, 283]]
+
+Puedes usar diferentes Criaturas, pero debes mantener los conceptos involucrados (familias y fábricas abstractas).
+
+## Ejemplo:
+
+```
+$> python3 battle.py
+Testing factory
+Flameling is a Fire type Creature
+Flameling uses Ember!
+Pyrodon is a Fire/Flying type Creature
+Pyrodon uses Flamethrower!
+
+Testing factory
+Aquabub is a Water type Creature
+Aquabub uses Water Gun!
+Torragon is a Water type Creature
+Torragon uses Hydro Pump!
+
+Testing battle
+Flameling is a Fire type Creature vs. Aquabub is a Water type Creature fight!
+Flameling uses Ember!
+Aquabub uses Water Gun!
+```
+
+===== Página 10 =====
+
+## Capítulo VI
+
+# Ejercicio 1: Capacidades
+
+| Ejercicio 1 | ex1 |
+|---|---|
+| Directorio: | ex1/ |
+| Archivos a entregar: | capacitor.py, ex1/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+¡Ahora añadiremos capacidades a nuestra Criatura! Pero quizás algún día, estas capacidades no solo se aplicarán a las Criaturas. Así que queremos mantenerlas separadas: ¡las clases abstractas de capacidad no heredarán de la clase base `Creature`!
+
+En la carpeta/paquete `ex1/`, implementarás lo siguiente:
+
+- Una clase abstracta `HealCapability` que define el método abstracto `heal`. Este método puede tomar un parámetro "target" si lo deseas.
+- Una clase abstracta `TransformCapability` que define los métodos abstractos `transform` y `revert`. Se usa un atributo para hacer persistente el estado y esto impacta en la implementación de `attack` de la Criatura con esta capacidad.
+- Mantengámoslo simple: estos métodos devolverán cadenas simples que describen la acción (al igual que el método `attack`).
+- Las siguientes clases concretas que heredan tanto de `Creature` como de `HealCapability`: `Sprouting` y `Bloomelle` que forman una sola familia y estarán disponibles a través de `HealingCreatureFactory` (heredando de `CreatureFactory`).
+- Las siguientes clases concretas que heredan tanto de `Creature` como de `TransformCapability`: `Shifting` y `Morphagon` que forman una sola familia y estarán disponibles a través de `TransformCreatureFactory` (heredando de `CreatureFactory`).
+- Nuevamente, tu paquete `ex1` no puede exponer `Creature` concretas directamente, solo debe exponer fábricas.
+
+===== Página 11 =====
+
+1
+
+Debes, obviamente, usar el contenido del paquete `ex0` y construir este ejercicio sobre él.
+
+Ahora es momento de definir el escenario de prueba. El script `capacitor.py`, ubicado en la raíz del repositorio Git, procederá de la siguiente manera:
+
+- Crear una fábrica de Criaturas curativas.
+- Crear la Criatura base, luego la evolucionada y hacer que: 1) sean descritas; 2) ataquen; 3) curen.
+- Crear una fábrica de Criaturas transformadoras.
+- Crear la Criatura base, luego la evolucionada y hacer que: 1) sean descritas; 2) ataquen; 3) se transformen; 4) ataquen de nuevo; 5) reviertan.
+
+## Ejemplo:
+
+```
+$> python3 capacitor.py
+Testing Creature with healing capability
+base: Sprouting is a Grass type Creature
+Sprouting uses Vine Whip!
+Sprouting heals itself for a small amount
+evolved: Bloomelle is a Grass/Fairy type Creature
+Bloomelle uses Petal Dance!
+Bloomelle heals itself and others for a large amount
+
+Testing Creature with transform capability
+base: Shifting is a Normal type Creature
+Shifting attacks normally.
+Shifting shifts into a sharper form!
+Shifting performs a boosted strike!
+Shifting returns to normal.
+evolved: Morphagon is a Normal/Dragon type Creature
+Morphagon attacks normally.
+Morphagon morphs into a dragonic battle form!
+Morphagon unleashes a devastating morph strike!
+Morphagon stabilizes its form.
+```
+
+===== Página 12 =====
+
+## Capítulo VII
+
+# Ejercicio 2: Estrategia Abstracta
+
+| Ejercicio 2 | ex2 |
+|---|---|
+| Directorio: | ex2/ |
+| Archivos a entregar: | tournament.py, ex2/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+Como acabamos de experimentar en el ejercicio anterior, las Criaturas con diferentes capacidades actuarán de manera diferente. En nuestro caso, la familia curativa curará después del ataque, mientras que la familia transformadora se transformará, luego atacará, luego revertirá. El día que queramos tomar múltiples cartas de Criatura de varias familias y hacer que luchen juntas en un torneo, necesitamos código de batalla que sea consciente de cada capacidad. ¿O quizás no? ¡Exploremos el patrón de estrategia abstracta! Y sí, ha llegado el día del torneo.
+
+En la carpeta/paquete `ex2/`, implementarás lo siguiente:
+
+- Una clase abstracta `BattleStrategy` que define los métodos abstractos `act` e `is_valid`. El método `is_valid` devuelve un booleano indicando si una Criatura es adecuada para la estrategia, y el método `act` será llamado por el script del torneo.
+- Tres clases concretas que heredan de `BattleStrategy`:
+  - `NormalStrategy`: adecuada para cualquier Criatura, que simplemente usará el método `attack` durante el torneo.
+  - `AggressiveStrategy`: adecuada para Criaturas con capacidades de transformación, que se transformará, atacará y revertirá durante el torneo.
+  - `DefensiveStrategy`: adecuada para Criaturas con capacidades de curación, que atacará y luego curará durante el torneo.
+- En caso de que se pruebe una combinación estrategia-Criatura inválida, el método `is_valid` devuelve `False`. Si se llama al método `act` con una combinación inválida, se lanza una excepción dedicada con un mensaje claro.
+
+===== Página 13 =====
+
+1
+
+Finalmente podemos crear nuestro torneo. El script `tournament.py`, ubicado en la raíz del repositorio Git, procederá de la siguiente manera:
+
+- Crear varias fábricas de Criaturas (de `ex0` y `ex1`).
+- Crear las tres estrategias.
+- Definir una única función de batalla que:
+  - tome una lista de oponentes en el torneo; cada oponente se define como una tupla que consiste en una `CreatureFactory` y una `BattleStrategy`.
+  - haga que cada oponente luche contra todos los demás oponentes.
+  - organice cada lucha usando la estrategia asociada de cada Criatura.
+  - maneje correctamente las tuplas Criatura-estrategia inválidas.
+
+===== Página 14 =====
+
+1
+
+## Ejemplo:
+
+```
+$> python3 tournament.py
+Tournament 0 (basic)
+[ (Flameling+Normal), (Healing+Defensive) ]
+** Tournament **
+2 opponents involved
+* Battle *
+Flameling is a Fire type Creature vs. Sprouting is a Grass type Creature now fight!
+Flameling uses Ember!
+Sprouting uses Vine Whip!
+Sprouting heals itself for a small amount
+
+Tournament 1 (error)
+[ (Flameling+Aggressive), (Healing+Defensive) ]
+** Tournament **
+2 opponents involved
+* Battle *
+Flameling is a Fire type Creature vs. Sprouting is a Grass type Creature now fight!
+Battle error, aborting tournament: Invalid Creature 'Flameling' for this aggressive strategy
+
+Tournament 2 (multiple)
+[ (Aquabub+Normal), (Healing+Defensive), (Transform+Aggressive) ]
+** Tournament **
+3 opponents involved
+* Battle *
+Aquabub is a Water type Creature vs. Sprouting is a Grass type Creature now fight!
+Aquabub uses Water Gun!
+Sprouting uses Vine Whip!
+Sprouting heals itself for a small amount
+* Battle *
+Aquabub is a Water type Creature vs. Shifting is a Normal type Creature now fight!
+Aquabub uses Water Gun!
+Shifting shifts into a sharper form!
+Shifting performs a boosted strike!
+Shifting returns to normal.
+* Battle *
+Sprouting is a Grass type Creature vs. Shifting is a Normal type Creature now fight!
+Sprouting uses Vine Whip!
+Sprouting heals itself for a small amount
+Shifting shifts into a sharper form!
+Shifting performs a boosted strike!
+Shifting returns to normal.
+```
+
+===== Página 15 =====
+
+1
+
+## Capítulo VIII
+
+## Entrega
+
+Entrega tu tarea en tu repositorio Git como siempre. Solo se evaluará el trabajo dentro de tu repositorio durante la defensa. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+[imagen[119, 387, 225, 448]]
+
+Durante la evaluación, es posible que se te pida explicar los patrones de diseño explorados en este proyecto. Concéntrate en comprender los conceptos, no solo en la implementación.
+
+[Fin del contenido del archivo]

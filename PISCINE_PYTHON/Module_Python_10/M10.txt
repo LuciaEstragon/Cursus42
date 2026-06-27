@@ -1,0 +1,695 @@
+m10
+
+Aquí tienes la traducción completa del documento `M10.pdf` al español:
+
+[Nombre del archivo]: M10.pdf
+[Inicio del contenido del archivo]
+
+===== Página 1 =====
+
+# FuncMage
+
+## Domina las Artes Ancestrales de la Programación Funcional
+
+**Resumen:** Bienvenido a las Crónicas de FuncMage. En el año 2142, eres un Mago de Funciones que aprende las artes ancestrales de las funciones de orden superior, los decoradores y los hechizos lambda. Domina estas poderosas técnicas para restaurar el equilibrio en el reino digital.
+
+**Versión:** 3.2
+
+===== Página 2 =====
+
+1 Prólogo 2
+2 Instrucciones para la IA 3
+3 Introducción 5
+4 Instrucciones Comunes 7
+   IV.1 Requisitos de Python 7
+   IV.2 Importaciones Autorizadas 7
+   IV.3 Prohibido 8
+   IV.4 Especificaciones de Salida 8
+5 Ejercicio 0: Sanctum Lambda 9
+6 Ejercicio 1: Reino Superior 12
+7 Ejercicio 2: Profundidades de la Memoria 15
+8 Ejercicio 3: Biblioteca Ancestral 18
+9 Ejercicio 4: Torre del Maestro 21
+10 Entrega y Revisión por Pares 24
+
+===== Página 3 =====
+
+1
+
+## Capítulo I
+
+## Prólogo
+
+¡Bienvenido, aspirante a Mago de Funciones, al año 2142!
+
+En este futuro cyberpunk, el reino digital enfrenta el caos. Las técnicas ancestrales de programación han sido olvidadas, y solo los Magos de Funciones poseen el conocimiento para restaurar el equilibrio. Tú eres uno de esos pocos elegidos, sin importar tu origen, identidad o nivel de experiencia — cada mago aporta fortalezas únicas a nuestra diversa comunidad.
+
+El Codex Lambda, un artefacto legendario que contiene los secretos de las funciones de orden superior, los decoradores y el alcance léxico, ha sido dispersado a través de las dimensiones digitales. Como Mago de Funciones, debes dominar estas artes ancestrales para reunir los fragmentos y salvar tanto el mundo virtual como el físico.
+
+Tu viaje te llevará a través de cinco reinos místicos, cada uno enseñándote un aspecto fundamental de la programación funcional. Conocerás a otros magos de todos los ámbitos de la vida — Alex la Especialista en Lambda, Jordan el Maestro de Decoradores, Riley el Guardián del Alcance, y muchos otros que te guiarán en esta aventura.
+
+Recuerda, joven mago: las funciones son ciudadanas de primera clase en Python, lo que significa que pueden ser pasadas, almacenadas en variables y transformadas como cualquier otro dato. Este poder, cuando se usa correctamente, puede crear hechizos elegantes, reutilizables y poderosos que se adaptan a cualquier situación.
+
+Tu búsqueda comienza ahora. ¡El reino digital espera tu contribución única al legado del Mago de Funciones!
+
+===== Página 4 =====
+
+1
+
+## Capítulo II
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta esté bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+- Usa la IA para reducir tareas repetitivas o tediosas.
+- Desarrolla habilidades de creación de prompts (tanto de programación como no programación) que beneficien tu carrera futura.
+- Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos.
+- Continúa construyendo habilidades tanto técnicas como interpersonales trabajando con tus compañeros.
+- Utiliza únicamente contenido generado por IA que comprendas completamente y del cual puedas responsabilizarte.
+
+## Reglas del aprendiz:
+
+- Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para que puedas usarlas éticamente y reducir sesgos potenciales.
+- Debes reflexionar sobre tu problema antes de hacer prompts; esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso.
+- Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA.
+- Siempre debes buscar la revisión de pares; no te fíes únicamente de tu propia validación.
+
+===== Página 5 =====
+
+1
+
+## Resultados de la fase:
+
+- Desarrollar habilidades de creación de prompts tanto de propósito general como de dominio específico.
+- Aumentar tu productividad con el uso efectivo de herramientas de IA.
+- Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+- Te encontrarás regularmente con situaciones (exámenes, evaluaciones y más) donde debas demostrar comprensión real. Prepárate, sigue construyendo tanto tus habilidades técnicas como interpersonales.
+- Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad.
+- Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer perspectivas más relevantes y precisas.
+- Mientras que la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## X Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación con pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad — y fallo en mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico. Luego reviso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos — mejor, más limpio y completamente entendido.
+
+## X Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías. Durante la evaluación, no puedo justificarlo y fallo en mi proyecto.
+
+===== Página 6 =====
+
+1
+
+## Capítulo III
+
+## Introducción
+
+Bienvenido a las Crónicas de FuncMage:
+
+Has dominado los fundamentos de Python, conquistado la programación orientada a objetos y aprendido a manejar excepciones con gracia. ¡Ahora es momento de descubrir los paradigmas de programación más elegantes y poderosos: las técnicas de la programación funcional!
+
+En esta aventura épica, explorarás cinco reinos místicos:
+
+- **Ejercicio 0: Sanctum Lambda**
+  - Domina las funciones anónimas y las expresiones lambda.
+- **Ejercicio 1: Reino Superior**
+  - Descubre el poder de las funciones de orden superior.
+- **Ejercicio 2: Profundidades de la Memoria**
+  - Comprende el alcance léxico y los closures.
+- **Ejercicio 3: Biblioteca Ancestral**
+  - Explora los tesoros del módulo functools.
+- **Ejercicio 4: Torre del Maestro**
+  - Crea poderosos decoradores y métodos de clase.
+
+Cada reino presenta desafíos que expandirán tu comprensión de las capacidades funcionales de Python.
+
+[imagen[138, 695, 221, 747]]
+
+**PRERREQUISITOS:** Esta actividad requiere un dominio sólido de las funciones de Python, clases, manejo de excepciones y estructuras de datos básicas. Deberías sentirte cómodo con la sintaxis de Python y los conceptos orientados a objetos antes de embarcarte en este viaje de programación funcional.
+
+[imagen[138, 810, 221, 865]]
+
+Concéntrate en entender por qué los patrones de programación funcional son poderosos, no solo en cómo implementarlos. Un gran Mago de Funciones entiende la filosofía detrás de la magia.
+
+===== Página 7 =====
+
+**HERRAMIENTA DE AYUDA DISPONIBLE:** ¡Esta actividad incluye una herramienta de ayuda para asistir tu viaje de aprendizaje! Revisa los adjuntos, extrae el archivo y busca:
+
+- `data_generator.py` - Te ayudará a generar datos de prueba realistas para todos los ejercicios con imágenes, artefactos y hechizos.
+
+Usa `python3 data_generator.py` para generar datos de prueba para tus implementaciones y para probar durante la revisión.
+
+===== Página 8 =====
+
+## IV.1 Requisitos de Python
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe cumplir con el estándar de codificación flake8.
+- El manejo de excepciones debe proteger los flujos de datos de la corrupción.
+- Usa anotaciones de tipo para todas las firmas de funciones y tipos de retorno.
+- Concéntrate en demostrar claramente los patrones de programación funcional.
+- Cada ejercicio debe estar en su propio archivo con el nombre especificado.
+- Escribe código limpio y legible que demuestre tu comprensión.
+
+## IV.2 Importaciones Autorizadas
+
+- Módulo `typing` - Para anotaciones de tipo avanzadas.
+- Cuando uses `Callable` como anotación de tipo, usa `collections.abc`.
+- Módulo `itertools` - Para patrones de iteración avanzados.
+- Los módulos esenciales para este proyecto `functools` y `operator` se especificarán si están permitidos en cada ejercicio.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas, excepto `eval()` y `exec()`.
+- Módulos de la biblioteca estándar según sea necesario para los ejercicios.
+
+===== Página 9 =====
+
+## IV.3 Prohibido
+
+- Bibliotecas externas (no `pip install`)
+- Operaciones de E/S de archivos (concéntrate en el procesamiento en memoria)
+- Algoritmos complejos (mantén el enfoque en los patrones funcionales)
+- Usar `eval()` o `exec()`
+- Variables globales (abrazar la pureza funcional cuando sea posible)
+
+## IV.4 Especificaciones de Salida
+
+Cada ejercicio proporciona ejemplos de terminal que muestran el formato de salida sugerido. Aunque la estructura central debe mantenerse, puedes personalizar los mensajes para reflejar tu comprensión de las operaciones de archivos, siempre que se conserve la información esencial.
+
+===== Página 10 =====
+
+1
+
+## Capítulo V
+
+# Ejercicio 0: Sanctum Lambda
+
+| Ejercicio 0 | ex0 |
+|---|---|
+| Directorio: | ex0/ |
+| Archivos a entregar: | lambda_spells.py |
+| Autorizado: | map, filter, sorted, min, max, round, sum, len |
+
+[imagen[122, 487, 222, 543]]
+
+Para este ejercicio, debes usar expresiones lambda para todas las transformaciones. No uses la palabra clave `def` para crear funciones nombradas para operaciones simples, como tareas únicas u operaciones fáciles de leer. El objetivo es dominar las funciones anónimas y los patrones de programación funcional.
+
+## El Sanctum Lambda: Dominando las Funciones Anónimas
+
+¡Bienvenido al Sanctum Lambda, joven mago! Aquí se enseña el arte ancestral de las funciones anónimas. Las expresiones lambda son como conjuros rápidos: hechizos cortos y poderosos que pueden transformar datos sin la ceremonia de las definiciones completas de funciones.
+
+[imagen[122, 700, 222, 766]]
+
+**Tu Misión:** Domina el arte de las expresiones lambda ayudando al guardián del Sanctum, Sage Lambda, a organizar artefactos mágicos usando funciones anónimas. Aprende a crear funciones sobre la marcha para la transformación de datos.
+
+===== Página 11 =====
+
+## El Desafío
+
+Crea un archivo `lambda_spells.py` que contenga funciones que demuestren el dominio de lambda:
+
+**Firmas de Funciones:**
+
+```python
+def artifact_sorter(artifacts: list[dict]) -> list[dict]
+def power_filter(mages: list[dict], min_power: int) -> list[dict]
+def spell_transformer(spells: list[str]) -> list[str]
+def mage_stats(mages: list[dict]) -> dict
+```
+
+## Requisitos de Implementación
+
+- `artifact_sorter(artifacts)` - Ordenar artefactos mágicos:
+  - Usa `sorted()` con una lambda para ordenar por nivel de 'power' (descendente)
+  - Cada artefacto es un dict: `{'name': str, 'power': int, 'type': str}`
+  - Devuelve la lista ordenada
+
+- `power_filter(mages, min_power)` - Filtrar magos por poder:
+  - Usa `filter()` con una lambda para encontrar magos con poder >= min_power
+  - Cada mago es un dict: `{'name': str, 'power': int, 'element': str}`
+  - Devuelve una lista de magos filtrados
+
+- `spell_transformer(spells)` - Transformar nombres de hechizos:
+  - Usa `map()` con una lambda para añadir prefijo `**` y sufijo `**`
+  - Entrada: lista de nombres de hechizos (cadenas)
+  - Devuelve una lista de nombres de hechizos transformados
+
+- `mage_stats(mages)` - Calcular estadísticas:
+  - Usa lambdas con `max()`, `min()` para encontrar:
+    - Nivel de poder del mago más poderoso
+    - Nivel de poder del mago menos poderoso
+    - Nivel de poder promedio (redondeado a 2 decimales)
+  - Devuelve dict: `{'max_power': int, 'min_power': int, 'avg_power': float}`
+
+===== Página 12 =====
+
+## Ejemplo de Salida Esperada:
+
+```
+$> python3 lambda_spells.py
+Testing artifact sorter...
+Fire Staff (92 power) comes before Crystal Orb (85 power)
+
+Testing spell transformer...
+**fireball** **heal** **shield**
+```
+
+¿Cómo hacen las expresiones lambda que el código sea más conciso? ¿Cuándo deberías usar lambda vs. definiciones de funciones regulares?
+
+===== Página 13 =====
+
+## Capítulo VI
+
+# Ejercicio 1: Reino Superior
+
+| Ejercicio 1 | ex1 |
+|---|---|
+| Directorio: | ex1/ |
+| Archivos a entregar: | higher_magic.py |
+| Autorizado: | callable(), Callable |
+
+## El Reino Superior: Funciones que Operan sobre Funciones
+
+¡Bienvenido al Reino Superior, donde las funciones se convierten en los sujetos de otras funciones! Aquí aprenderás que las funciones son ciudadanas de primera clase — pueden ser pasadas como argumentos, devueltas desde otras funciones y almacenadas en estructuras de datos.
+
+[imagen[119, 599, 224, 659]]
+
+**Tu Misión:** Ayuda al guardián del Reino, Mago Functional, a crear un sistema de creación de hechizos donde las funciones puedan modificar, combinar y mejorar otras funciones. ¡Domina el arte de las funciones de orden superior!
+
+## El Desafío
+
+Crea un archivo `higher_magic.py` que demuestre el dominio de las funciones de orden superior:
+
+## Contexto
+
+Cada hechizo en tu grimorio sigue el mismo contrato:
+
+```python
+def spell(target: str, power: int) -> str
+```
+
+Un hechizo toma un objetivo y un nivel de poder y devuelve una cadena de descripción de lo que sucedió.
+
+===== Página 14 =====
+
+1
+
+Ejemplos:
+
+```python
+def heal(target: str, power: int) -> str:
+    return f"Heal restores {target} for {power} HP"
+```
+
+Si necesitas inspiración para los valores de poder o el objetivo, usa `data_generator.py` para obtener datos de muestra.
+
+Deben implementarse las siguientes funciones:
+
+**Firmas de Funciones:**
+
+```python
+def spell_combiner(spell1: Callable, spell2: Callable) -> Callable
+def power_amplifier(base_spell: Callable, multiplier: int) -> Callable
+def conditional_caster(condition: Callable, spell: Callable) -> Callable
+def spell_sequence(spells: list[Callable]) -> Callable
+```
+
+## Requisitos de Implementación
+
+- `spell_combiner(spell1, spell2)` - Combinar dos hechizos:
+  - Devuelve una nueva función que llama a ambos hechizos con los mismos argumentos
+  - El hechizo combinado debe devolver una tupla con ambos resultados
+  - Ejemplo: `combined = spell_combiner(fireball, heal)`
+
+- `power_amplifier(base_spell, multiplier)` - Amplificar poder del hechizo:
+  - Devuelve una función con la misma firma que el hechizo original
+  - Devuelve un nuevo hechizo donde el poder se multiplica antes de lanzarlo
+  - Ejemplo: `mega_fireball = power_amplifier(fireball, 3)`
+
+- `conditional_caster(condition, spell)` - Lanzar hechizo condicionalmente:
+  - Devuelve un nuevo hechizo que solo se lanza si una condición es True
+  - Si la condición falla, devuelve 'Spell fizzled'
+  - Tanto la condición como el hechizo reciben los mismos argumentos
+
+- `spell_sequence(spells)` - Crear secuencia de hechizos:
+  - Devuelve una función que lanza todos los hechizos en orden
+  - Cada hechizo recibe los mismos argumentos
+  - Devuelve una lista de todos los resultados de los hechizos
+
+===== Página 15 =====
+
+1
+
+## Ejemplo de Salida Corto:
+
+```
+$> python3 higher_magic.py
+Testing spell combiner...
+Combined spell result: Fireball hits Dragon, Heals Dragon
+Testing power amplifier...
+Original: 10, Amplified: 30
+```
+
+Tu programa debe demostrar el uso y la eficiencia de todas tus funciones modificadoras de hechizos.
+
+[imagen[127, 256, 222, 309]]
+
+¿Cómo habilitan las funciones de orden superior la reutilización y composición de código? ¿Qué hace que las funciones sean "ciudadanas de primera clase" en Python?
+
+[imagen[127, 360, 222, 414]]
+
+¿Desde qué paquete se recomienda usar `Callable`? ¿Cuál es el propósito de `callable()`?
+
+===== Página 16 =====
+
+## Capítulo VII
+
+# Ejercicio 2: Profundidades de la Memoria
+
+| Ejercicio 2 | ex2 |
+|---|---|
+| Directorio: | ex2/ |
+| Archivos a entregar: | scope_mysteries.py |
+| Autorizado: | nonlocal |
+
+## Las Profundidades de la Memoria: Alcance Léxico y Closures
+
+En lo profundo de las Profundidades de la Memoria, se guardan los antiguos secretos del alcance léxico. Aquí, las funciones recuerdan el entorno donde fueron creadas, capturando variables en closures místicos que persisten más allá de su alcance original.
+
+[imagen[119, 600, 224, 666]]
+
+**Tu Misión:** Ayuda al Guardián de la Memoria, Sage Closure, a entender cómo las funciones pueden "recordar" variables de su entorno de creación. ¡Domina los closures y el alcance léxico para crear efectos mágicos persistentes!
+
+## El Desafío
+
+Crea un archivo `scope_mysteries.py` que demuestre el dominio del alcance léxico:
+
+**Firmas de Funciones:**
+
+```python
+def mage_counter() -> Callable
+def spell_accumulator(initial_power: int) -> Callable
+def enchantment_factory(enchantment_type: str) -> Callable
+def memory_vault() -> dict[str, Callable]
+```
+
+===== Página 17 =====
+
+1
+
+## Requisitos de Implementación
+
+- `mage_counter()` - Crear un closure contador:
+  - Devuelve una función que cuenta cuántas veces ha sido llamada
+  - Cada llamada debe devolver el recuento actual (comenzando desde 1)
+  - El contador debe persistir entre llamadas
+  - Crear dos contadores separados debe producir estados independientes
+  - Usa closure para mantener el estado sin variables globales
+
+- `spell_accumulator(initial_power)` - Crear acumulador de poder:
+  - Devuelve una función que acumula poder con el tiempo
+  - Cada llamada añade la cantidad dada al poder total
+  - Devuelve el nuevo poder total después de cada adición
+  - Comienza con `initial_power` como base
+
+- `enchantment_factory(enchantment_type)` - Crear funciones de encantamiento:
+  - Devuelve una función que aplica el encantamiento especificado
+  - La función devuelta toma un nombre de ítem y devuelve una descripción encantada
+  - Formato: 'tipo_encantamiento nombre_ítem' (ej., 'Flaming Sword')
+  - Cada fábrica crea funciones con diferentes tipos de encantamiento
+
+- `memory_vault()` - Crear un sistema de gestión de memoria:
+  - Devuelve un dict con las funciones 'store' y 'recall'
+  - Función 'store': toma (key, value) y almacena la memoria
+  - Función 'recall': toma (key) y devuelve el valor almacenado o 'Memory not found'
+  - Usa closure para mantener el almacenamiento de memoria privado
+
+===== Página 18 =====
+
+## Ejemplo de Salida Esperada:
+
+```
+$> python3 scope_mysteries.py
+Testing mage counter...
+counter_a call 1: 1
+counter_a call 2: 2
+counter_b call 1: 1
+
+Testing spell accumulator...
+Base 100, add 20: 120
+Base 100, add 30: 150
+
+Testing enchantment factory...
+Flaming Sword
+Frozen Shield
+
+Testing memory vault...
+Store 'secret' = 42
+Recall 'secret' = 42
+Recall 'unknown' : Memory not found
+```
+
+¿Cómo permiten los closures que las funciones "recuerden" su entorno de creación? ¿Cuáles son los beneficios del alcance léxico en la programación funcional?
+
+¿Por qué está prohibido `global` pero permitido `nonlocal`? ¿Cuáles son las diferencias clave?
+
+===== Página 19 =====
+
+1
+
+## Capítulo VIII
+
+# Ejercicio 3: Biblioteca Ancestral
+
+| Ejercicio 3 | ex3 |
+|---|---|
+| Directorio: | ex3/ |
+| Archivos a entregar: | functools_artifacts.py |
+| Autorizado: | functools, operator |
+
+## La Biblioteca Ancestral: Tesoros de Functools
+
+En la Biblioteca Ancestral, se almacenan los artefactos de programación funcional más poderosos. El módulo `functools` contiene herramientas legendarias: `reduce`, `partial`, `wraps`, y más. Estos artefactos pueden transformar cómo abordas problemas complejos.
+
+[imagen[119, 597, 224, 661]]
+
+**Tu Misión:** Ayuda al curador de la Biblioteca, Archivista Functools, a catalogar y demostrar el poder de estos artefactos ancestrales. ¡Aprende a manejar `reduce`, `partial` y otros tesoros de functools!
+
+## El Desafío
+
+Crea un archivo `functools_artifacts.py` que demuestre el dominio de functools:
+
+**Firmas de Funciones:**
+
+```python
+def spell_reducer(spells: list[int], operation: str) -> int
+def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]
+def memoized_fibonacci(n: int) -> int
+def spell_dispatcher() -> Callable[[Any], str]
+```
+
+===== Página 20 =====
+
+1
+
+## Requisitos de Implementación
+
+- `spell_reducer(spells, operation)` - Reducir poderes de hechizos:
+  - Usa `functools.reduce` para combinar todos los poderes de hechizos
+  - Soporta operaciones: 'add', 'multiply', 'max', 'min'
+  - Usa funciones del módulo `operator` (add, mul, etc.)
+  - Devuelve el valor reducido final
+  - Si `spells` está vacío, devuelve 0
+  - Si la operación es desconocida, maneja el error adecuadamente
+
+- `partial_enchanter(base_enchantment)` - Crear aplicaciones parciales:
+  - Toma una función de encantamiento base con firma `(power: int, element: str, target: str) -> str`
+  - Usa `functools.partial` para crear 3 versiones especializadas
+  - Cada versión pre-completa `power = 50` y el elemento
+
+- `memoized_fibonacci(n)` - Fibonacci con caché:
+  - Usa el decorador `functools.lru_cache` para memoización
+  - Implementa el cálculo de la secuencia de Fibonacci
+  - La función debe devolver el n-ésimo número de Fibonacci
+  - El caché debe mejorar el rendimiento para llamadas repetidas
+  - Devuelve el n-ésimo número de fibonacci
+
+[imagen[172, 642, 271, 703]]
+
+Puedes verificar que el caché funciona a través de `memoized_fibonacci.cache_info()`.
+
+- `spell_dispatcher()` - Crear sistema de despacho simple:
+  - Usa el decorador `functools.singledispatch` para crear un sistema de hechizos
+  - La función base recibe `Any` y maneja tipos de hechizo desconocidos
+  - Maneja diferentes tipos: `int` (hechizo de daño), `str` (encantamiento), `list` (multi-lanzamiento)
+  - Devuelve la función despachadora
+  - Cada tipo debe tener un comportamiento de hechizo apropiado
+
+===== Página 21 =====
+
+## Ejemplo de Salida Esperada:
+
+```
+$> python3 functools_artifacts.py
+Testing spell reducer...
+Sum: 100
+Product: 240000
+Max: 40
+
+Testing memoized fibonacci...
+Fib(0): 0
+Fib(1): 1
+Fib(10): 55
+Fib(15): 610
+
+Testing spell dispatcher...
+Damage spell: 42 damage
+Enchantment: fireball
+Multi-cast: 3 spells
+Unknown spell type
+```
+
+[imagen[122, 126, 879, 320]]
+
+[imagen[122, 360, 224, 417]]
+
+¿Cómo permite `functools.reduce` la agregación poderosa de datos? ¿Cuáles son los beneficios de rendimiento de la memoización con `lru_cache`?
+
+===== Página 22 =====
+
+1
+
+## Capítulo IX
+
+# Ejercicio 4: Torre del Maestro
+
+| Ejercicio 4 | ex4 |
+|---|---|
+| Directorio: | ex4/ |
+| Archivos a entregar: | decorator_mastery.py |
+| Autorizado: | functools.wraps, staticmethod |
+
+## La Torre del Maestro: Dominio de Decoradores y Métodos de Clase
+
+En la cima de tu viaje se encuentra la Torre del Maestro, donde los Magos de Funciones más avanzados aprenden a crear decoradores — envolturas mágicas que pueden transformar el comportamiento de cualquier función. Aquí, también dominarás `@staticmethod` y entenderás cómo funcionan los decoradores con las clases.
+
+[imagen[119, 612, 226, 676]]
+
+**Tu Misión:** Demuestra tu maestría al guardián de la Torre, Gran Maestro Decorador, creando poderosos decoradores que puedan mejorar cualquier hechizo o método. ¡Esta es tu prueba final como Mago de Funciones!
+
+## El Desafío
+
+Crea un archivo `decorator_mastery.py` que demuestre el dominio de los decoradores:
+
+**Firmas de Funciones:**
+
+```python
+def spell_timer(func: Callable) -> Callable
+def power_validator(min_power: int) -> Callable
+def retry_spell(max_attempts: int) -> Callable
+
+class MageGuild:
+    @staticmethod
+    def validate_mage_name(name: str) -> bool
+    def cast_spell(self, spell_name: str, power: int) -> str
+```
+
+===== Página 23 =====
+
+1
+
+## Requisitos de Implementación
+
+- `spell_timer(func)` - Decorador de medición de tiempo:
+  - Crea un decorador que mide el tiempo de ejecución de la función
+  - Imprime "Casting nombre_función..." antes de la ejecución
+  - Imprime "Spell completed in X.XXX seconds" después de la ejecución (3 decimales)
+  - Usa `functools.wraps` para preservar los metadatos de la función original
+  - Devuelve el resultado de la función original
+
+- `power_validator(min_power)` - Fábrica de decoradores de validación de poder:
+  - Crea un decorador que valida niveles de poder
+  - Aplicado sobre una función independiente
+  - Si el poder es válido (>= min_power), ejecuta la función normalmente
+  - Si es inválido, devuelve "Insufficient power for this spell"
+  - Usa `functools.wraps` adecuadamente
+
+- `retry_spell(max_attempts)` - Decorador de reintentos:
+  - Crea un decorador que reintenta hechizos fallidos
+  - Si la función lanza una excepción, reintenta hasta `max_attempts` veces
+  - Imprime "Spell failed, retrying... (attempt n/max_attempts)"
+  - Si todos los intentos fallan, devuelve "Spell casting failed after max_attempts attempts"
+  - Si un intento tiene éxito, devuelve su resultado normalmente
+
+- Clase `MageGuild` - Demostrar `staticmethod`:
+  - `validate_mage_name(name)` - Método estático que verifica si el nombre es válido
+    - El nombre es válido si tiene al menos 3 caracteres y contiene solo letras/espacios
+  - `cast_spell(self, spell_name, power)` - Método de instancia
+    - Debe usar el decorador `power_validator` con `min_power=10`
+    - Cuando el poder es válido, devuelve "Successfully cast spell_name with <power> power"
+    - De lo contrario, devuelve "Insufficient power for this spell"
+
+===== Página 24 =====
+
+1
+
+Puedes usar `time.sleep` para simular tiempo de espera entre hechizos.
+
+## Ejemplo de Salida Esperada:
+
+```
+$> python3 decorator_mastery.py
+Testing spell timer...
+Casting fireball...
+Spell completed in 0.101 seconds
+Result: Fireball cast!
+
+Testing retrying spell...
+Spell failed, retrying... (attempt 1/3)
+Spell failed, retrying... (attempt 2/3)
+Spell casting failed after 3 attempts
+Waaaaaaagh spelled !
+
+Testing MageGuild...
+True
+False
+Successfully cast Lightning with 15 power
+Insufficient power for this spell
+```
+
+===== Página 25 =====
+
+## Capítulo X
+
+## Entrega y Revisión por Pares
+
+Entrega tu tarea en tu repositorio Git como siempre. Solo se evaluará el trabajo dentro de tu repositorio durante la revisión por pares. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+[imagen[117, 389, 222, 451]]
+
+Durante la revisión por pares, es posible que se te pida explicar conceptos de programación funcional, demostrar cómo funcionan los closures o mostrar cómo los decoradores transforman funciones. Concéntrate en comprender los conceptos, no solo en la implementación.
+
+[imagen[117, 511, 222, 571]]
+
+Mantén tus implementaciones enfocadas en demostrar claramente los conceptos de programación funcional. Evita la sobreingeniería — el objetivo es mostrar maestría en funciones de orden superior, closures y decoradores.
+
+[imagen[117, 635, 222, 697]]
+
+¡Felicitaciones, Mago de Funciones! Has dominado las artes ancestrales de la programación funcional. Estas técnicas harán que tu código sea más elegante, reutilizable y poderoso. ¡Úsalas sabiamente en tus futuras aventuras!
+
+[Fin del contenido del archivo]

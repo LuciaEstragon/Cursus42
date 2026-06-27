@@ -1,0 +1,345 @@
+M6-ESP
+
+Claro, aquí tienes la traducción completa del documento al español:
+
+[Nombre del archivo]: M6.pdf
+[Inicio del contenido del archivo]
+
+===== Página 1 =====
+
+# El Codex Dominando los Misterios de Importación de Python
+
+**Resumen:** Descubre el arte ancestral de las importaciones de Python a través de experimentos alquímicos. Domina los cuatro misterios sagrados: inicialización de paquetes, rutas de importación, acceso absoluto vs relativo, y cómo romper dependencias circulares.
+
+**Versión:** 2.0
+
+===== Página 2 =====
+
+1 2 4 5 7 7 10 12 14 16
+
+===== Página 3 =====
+
+1
+
+## Capítulo I
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta esté bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+Usa la IA para reducir tareas repetitivas o tediosas. Desarrolla habilidades de creación de prompts (tanto de programación como no programación) que beneficien tu carrera futura. Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos. Continúa construyendo habilidades tanto técnicas como interpersonales trabajando con tus compañeros. Utiliza únicamente contenido generado por IA que comprendas completamente y del cual puedas responsabilizarte.
+
+## Reglas del aprendiz:
+
+Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para que puedas usarlas éticamente y reducir sesgos potenciales. Debes reflexionar sobre tu problema antes de hacer prompts; esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso. Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA. Siempre debes buscar la revisión de pares; no te fíes únicamente de tu propia validación.
+
+===== Página 4 =====
+
+1
+
+## Resultados de la fase:
+
+Resultados de la fase: Desarrollar habilidades de creación de prompts tanto de propósito general como de dominio específico. Aumentar tu productividad con el uso efectivo de herramientas de IA. Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+Regularmente te encontrarás con situaciones (exámenes, evaluaciones y más) donde debas demostrar comprensión real. Esté preparado, sigue construyendo tanto tus habilidades técnicas como interpersonales. Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad. Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer perspectivas más relevantes y precisas. Mientras que la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación con pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad y fallo en mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico (parser). Luego reviso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos: mejor, más limpio y completamente entendido.
+
+## Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías (pipes). Durante la evaluación, no puedo justificarlo y fallo en mi proyecto.
+
+===== Página 5 =====
+
+1
+
+## Capítulo II
+
+## Introducción
+
+¡Bienvenido al Laboratorio del Alquimista, joven aprendiz!
+
+En la época medieval, los alquimistas buscaban transformar metales básicos en oro. Hoy, como alquimista de Python, aprenderás a transformar código disperso en fórmulas mágicas organizadas y reutilizables.
+ Así como los antiguos alquimistas tenían sus grimorios (libros de hechizos) organizados en capítulos y secciones, el código de Python debe organizarse en módulos y paquetes.
+
+¡Pero cuidado! El camino del alquimista está lleno de misterios:
+
+- Usar `__init__.py`, la puerta de entrada que transforma una simple carpeta en un paquete mágico.
+- Llamar al código de un módulo distante desde otro módulo distante.
+- Gestionar importaciones absolutas vs relativas.
+- Evitar dependencias circulares.
+
+En este codex, construirás tu propio laboratorio alquímico: un paquete completo de Python que demuestra estos cuatro misterios sagrados.
+
+[imagen[142, 674, 213, 731]]
+
+Concéntrate en entender cómo funcionan las importaciones, no solo en hacer que funcionen. ¡Un verdadero alquimista entiende cada paso del proceso de transmutación!
+
+===== Página 6 =====
+
+1
+
+## Capítulo III
+
+## Instrucciones Generales
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe cumplir con el estándar de codificación flake8.
+- Todo el código debe incluir anotaciones de tipo completas. Verifica esto usando mypy.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas, excepto eval() y exec().
+- Solo se permiten importaciones de los módulos y archivos que crearás en este proyecto.
+- Está prohibido modificar sys.path.
+
+===== Página 7 =====
+
+1.1.1.1.1.1.1.1.1.1.1
+
+Este proyecto está dividido en cuatro partes que construirán una estructura única de archivos y carpetas. Al final del proyecto, tu árbol debería verse así:
+
+[imagen[117, 152, 883, 639]]
+
+[imagen[117, 664, 223, 737]]
+
+Todas las funciones deben ser simples y devolver cadenas de texto. Concéntrate en los conceptos de importación, no en la lógica compleja.
+
+===== Página 8 =====
+
+1
+
+## Capítulo IV
+
+# Parte Obligatoria
+
+## IV.1 Parte I: El Alambique
+
+¡Todo alquimista comienza con ingredientes simples en su alambique! Pero a veces, algunos ingredientes están cerca, otros no. 
+Esta primera parte trata sobre el uso de mecanismos de importación para acceder a archivos y módulos locales.
+
+Primero, crearemos los componentes de la arquitectura de nuestro laboratorio (y luego el conjunto de pruebas).
+
+`elements.py` contendrá:
+
+- Una función `create_fire()` que simplemente devuelve la cadena "Fire element created".
+- Una función `create_water()` que simplemente devuelve la cadena "Water element created".
+
+`alchemy/elements.py` contendrá:
+
+- Una función `create_earth()` que simplemente devuelve la cadena "Earth element created".
+- Una función `create_air()` que simplemente devuelve la cadena "Air element created".
+
+`alchemy/__init__.py` contendrá:
+
+- Cualquier cosa útil para importar parcialmente el módulo `alchemy`. Vea `ft_albnic_4.py`.
+
+Para probar cuidadosamente la arquitectura de nuestro laboratorio, crea los siguientes seis scripts:
+
+- `ft_albnic_0.py` usará la estructura `import ...` para acceder a `elements.py` directamente y luego creará fuego.
+- `ft_albnic_1.py` usará la estructura `from ... import ...` para acceder a `elements.py` directamente y luego creará agua.
+- `ft_albnic_2.py` usará la estructura `import ...` para acceder a `alchemy/elements.py` directamente y luego creará tierra.
+
+===== Página 9 =====
+
+1
+
+- `ft_albemic_3.py` usará la estructura `from ... import ...` para acceder a `alchemy/elements.py` directamente y luego creará aire.
+- `ft_albemic_4.py` usará `import alchemy` para acceder al módulo `alchemy` y luego creará aire. La función `create_earth()` no estará expuesta a través de la interfaz del módulo y generará una excepción cuando se llame (puedes capturar la excepción o no, esto es solo con fines pedagógicos). También se generará un error de mypy, nuevamente, a propósito.
+- `ft_albemic_5.py` usará la estructura `from alchemy import ...` para acceder al módulo `alchemy` y luego creará aire.
+
+Puedes enfrentar errores de flake8/mypy en tu archivo `__init__.py`. Sigue las convenciones habituales en esta situación.
+
+===== Página 10 =====
+
+1.1.1.1.1.1.1.1.1.1.1
+
+**Ejemplo:**
+
+```
+$> python3 ft_albemic_0.py
+== Alcmbic 0 ==
+Using: 'import ...' structure to access elements.py
+Testing create_fire: Fire element created
+$> python3 ft_albemic_1.py
+== Alcmbic 1 ==
+Using: 'from ... import ...' structure to access elements.py
+Testing create_water: Water element created
+$> python3 ft_albemic_2.py
+== Alcmbic 2 ==
+Accessing alchemy/elements.py using 'import ...' structure
+Testing create_earth: Earth element created
+$> python3 ft_albemic_3.py
+== Alcmbic 3 ==
+Accessing alchemy/elements.py using 'from ... import ...' structure
+Testing create_air: Air element created
+$> python3 ft_albemic_4.py
+== Alcmbic 4 ==
+Accessing the alchemy module using 'import alchemy'
+Testing create_air: Air element created
+Now show that not all functions can be reached
+This will raise an exception!
+Testing the hidden create_earth:
+Traceback (most recent call last):
+  File "/tmp/Python/module-06/ft_albemic_4.py", line 12, in <module>
+    print(f"[alchemy.create_earth()]")
+AttributeError: module 'alchemy' has no attribute 'create_earth'. Did you mean: 'create_air'?
+$> python3 ft_albemic_5.py
+== Alcmbic 5 ==
+Accessing the alchemy module using 'from alchemy import ...'
+Testing create_air: Air element created
+```
+
+===== Página 11 =====
+
+## 1.2 Parte II: Destilación
+
+Domina el arte de las importaciones anidadas y convoca códigos distantes desde archivos distantes.
+
+Mejoremos la arquitectura de nuestro laboratorio y agreguemos un nuevo componente:
+
+`alchemy/potions.py` contendrá:
+
+- Una función `healing_potion()` que devuelve la cadena "Healing potion brewed with '[created earth element]' and '[created air element]'".
+- Una función `strength_potion()` que devuelve la cadena "Strength potion brewed with '[created fire element]' and '[created water element]'".
+- Cualquier otra cosa útil para acceder a los cuatro elementos fundamentales.
+
+Para verificar estas nuevas funcionalidades, crea los siguientes dos scripts:
+
+- `ft_distillation_0.py` usará la estructura `from ... import ...` para acceder a `alchemy/potions.py` directamente y luego preparará ambas pociones de curación y fuerza.
+- `ft_distillation_1.py` usará la estructura `import alchemy` para acceder al módulo `alchemy`, luego preparará la poción de fuerza original y la poción especial `heal()`, que es un alias del paquete para la poción de curación. Necesitarás mejorar tu `__init__.py`.
+
+===== Página 12 =====
+
+1
+
+**Ejemplo:**
+
+```
+$> python3 ft_distillation_0.py
+== Distillation 0 ==
+Direct access to alchemy/potions.py
+Testing strength_potion: Strength potion brewed with 'Fire element created' and 'Water element created'
+Testing healing_potion: Healing potion brewed with 'Earth element created' and 'Air element created'
+$> python3 ft_distillation_1.py
+== Distillation 1 ==
+Using: 'import alchemy' structure to access potions
+Testing strength_potion: Strength potion brewed with 'Fire element created' and 'Water element created'
+Testing heal alias: Healing potion brewed with 'Earth element created' and 'Air element created'
+```
+
+===== Página 13 =====
+
+## 1.3 Parte III: La Gran Transmutación
+
+Comprende el antiguo debate entre importaciones absolutas y relativas: dos caminos diferentes para alcanzar la misma fórmula mágica.
+
+Mejoremos una vez más la arquitectura de nuestro laboratorio y agreguemos un nuevo componente:
+
+`alchemy/transmutation/recipes.py` contendrá:
+
+- Una función `lead_to_gold()` que devuelve la cadena 'Recipe transmuting Lead to Gold: brew '[created air]' and '[created strength potion]' mixed with '[created fire]'. Al menos una importación absoluta y una importación relativa.
+
+Crea tres scripts de prueba para verificar que todo se importe con éxito:
+
+- `ft_transmutation_0.py` usará la estructura `import ...` para acceder a `alchemy/transmutation/recipes.py` directamente y luego lograr la transformación de plomo en oro.
+- `ft_transmutation_1.py` usará la estructura `import ...` para importar el módulo `transmutation` directamente y luego lograr la transformación de plomo en oro.
+- `ft_transmutation_2.py` usará la estructura `import ...` para importar el módulo `alchemy` directamente y luego lograr la transformación de plomo en oro.
+
+Es posible que necesites crear y/o actualizar algunos archivos adicionales para completar estos scripts.
+
+===== Página 14 =====
+
+1
+
+**Ejemplo:**
+
+```
+$> python3 ft_transmutation_0.py
+== Transmutation 0 ==
+Direct access to alchemy/transmutation/recipes.py
+Recipe transmuting Lead to Gold: brew 'Air element created' and 'Strength potion brewed with 'Fire element created' and 'Water element created'' mixed with 'Fire element created'
+```
+
+(Nota: El ejemplo está incompleto en el original, se completa con la salida esperada similar a las siguientes)
+
+===== Página 15 =====
+
+## 1.4 Parte IV: Evita la Explosión
+
+Aprende a identificar y romper la maldición explosiva de la dependencia circular, que ocurre cuando los módulos intentan invocarse entre sí en un bucle infinito, ¡amenazando con destruir tu laboratorio!
+
+Finalmente, agregaremos estos últimos componentes en la arquitectura de nuestro laboratorio:
+
+`alchemy/grimoire/light_spellbook.py` contendrá:
+
+- Una función `light_spell_allowed_ingredients()` que devuelve una lista de ingredientes permitidos para magia ligera, digamos "earth", "air", "fire", "water".
+- Una función `light_spell_record(spell_name: str, ingredients: str)` que devuelve una cadena que indica si el hechizo está registrado o rechazado. La decisión proviene de la función de validación descrita a continuación.
+
+`alchemy/grimoire/light_validator.py` contendrá:
+
+- Una función `validate_ingredients(ingredients: str)` que devuelve una cadena con los ingredientes y la palabra clave "VALID" o "INVALID". Los ingredientes son válidos si incluyen al menos uno de los ingredientes permitidos del libro de hechizos (sin distinción de mayúsculas/minúsculas).
+
+Ahora duplica ambos archivos para obtener `dark_spellbook.py` y `dark_validator.py`, y cambia los nombres de las funciones también. Digamos que la magia oscura usa los siguientes ingredientes: "bats", "frogs", "arsenic", y "eyeball".
+
+¡Es hora de probar algunos hechizos! Crea dos scripts para demostrar que la magia ligera evita dependencias circulares y explosiones del laboratorio, y que la magia oscura es peligrosa y explota debido a dependencias circulares:
+
+- `ft_kaboom_0.py` accederá al módulo `grimoire` directamente y luego registrará un hechizo de luz, sin problemas. Hay múltiples formas de evitar dependencias circulares; tú eliges una. Prepárate para explicar los diferentes enfoques durante la evaluación.
+- `ft_kaboom_1.py` accederá secretamente a `dark_spellbook.py` directamente y luego intentará registrar un hechizo oscuro. Esto debe fallar y generar una excepción (puedes elegir capturarla o no; es solo con fines pedagógicos), indicando que tu laboratorio alquímico acaba de explotar.
+
+===== Página 16 =====
+
+1
+
+**Ejemplo:**
+
+```
+$> python3 ft_kaboom_0.py
+== Kaboom 0 ==
+Using grimoire module directly
+Test record light spell: Spell recorded: Fantasy (Earth, wind and fire - VALID)
+$> python3 ft_kaboom_1.py
+== Kaboom 1 ==
+Access to alchemy/grimoire/dark_spellbook.py directly
+Test import now - THIS WILL RAISE AN UNCAUGHT EXCEPTION
+Traceback (most recent call last):
+  File "/tmp/Python/module-06/ft_kaboom_1.py", line 7, in <module>
+    from alchemy.grimoire.dark_spellbook import dark_spell_record
+  File "/tmp/Python/module-06/alchemy/grimoire/dark_spellbook.py", line 2, in <module>
+    from dark_validator import validate_ingredients
+  File "/tmp/Python/module-06/alchemy/grimoire/dark_validator.py", line 2, in <module>
+    from dark_spellbook import dark_spell_allowed_ingredients
+ImportError: cannot import name 'dark_spell_allowed_ingredients' from partially initialized module 'alchemy.grimoire.dark_spellbook' (most likely due to a circular import) (/tmp/Python/module-06/alchemy/grimoire/dark_spellbook.py)
+```
+
+===== Página 17 =====
+
+1
+
+## Capítulo V
+
+## Instrucciones de Entrega
+
+Entrega tu tarea en tu repositorio Git, como siempre. Solo se evaluará el trabajo dentro de tu repositorio durante la defensa.
+
+Coloca el árbol de archivos esperado en la raíz de tu repositorio Git.
+
+[imagen[117, 407, 222, 469]]
+
+Durante la evaluación, es posible que se te pida explicar los mecanismos de importación, demostrar diferentes estilos de importación o modificar tu laboratorio alquímico. Asegúrate de comprender los cuatro misterios sagrados, no solo su implementación.
+
+[Fin del contenido del archivo]

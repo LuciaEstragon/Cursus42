@@ -1,0 +1,220 @@
+
+Código Nexus
+Flujos de Datos Polimórficos en la Matriz Digital
+**Resumen:** Domina las clases abstractas, la sobrescritura de métodos y el polimorfismo de subtipos mientras construyes tuberías de procesamiento de datos avanzadas que se adaptan y evolucionan en tiempo real.
+
+
+====================
+
+1 Introducción 2
+2 Instrucciones para la IA 3
+3 Instrucciones Generales 5
+4 Ejercicio 0: Procesador de Datos 6
+5 Ejercicio 1: Procesamiento Polimórfico de un Flujo de Datos 9
+6 Ejercicio 2: Tubería de Datos 11
+7 Entrega y Envío 13
+
+## Introducción
+
+¡Bienvenido al Código Nexus, Ingeniero de Flujos!
+
+El año es 2087. En la extensa metrópolis digital de Neo-Tokio, los datos fluyen a través de redes de fibra cuántica como ríos de neón brillante de información pura. El Código Nexus se erige como el mayor logro de la humanidad: una catedral cibernética donde miles de millones de flujos de datos convergen, se transforman y evolucionan en perfecta armonía.
+
+Pero el Nexus no solo consume datos; los entiende. Cada flujo de datos lleva su propia firma digital, sus propios patrones de comportamiento. ¿Cómo puede un solo sistema comprender tal diversidad?
+
+A través de los principios de clases abstractas, polimorfismo, sobrescritura de métodos y jerarquías de herencia, manejarás diferentes tipos de datos en un mismo flujo de trabajo software.
+
+Bienvenido al futuro. Bienvenido al Código Nexus.
+
+====================
+
+## Instrucciones Generales
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe adherirse al estándar de codificación flake8.
+- Todo el código debe incluir anotaciones de tipo completas. Verifica esto usando mypy.
+- El manejo de excepciones debe proteger los flujos de datos de corrupción.
+- Importaciones autorizadas: abc y typing.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas.
+
+====================
+
+ Capítulo IV
+
+# Ejercicio 0: Procesador de Datos
+
+
+| Ejercicio 0 |
+|------------|
+| Directorio: ex0/ |
+| Archivos a entregar: data_processor.py |
+| Autorizado: builtins, tipos estándar, import typing, import abc |
+
+Informe de Ingeniería: ¡Bienvenido al Código Nexus! Construye la base de nuestro sistema de procesamiento de datos. Crearás la arquitectura base del procesador y demostrarás cómo diferentes tipos de datos pueden compartir interfaces de procesamiento comunes mientras mantienen sus características únicas.
+
+Este ejercicio requiere el uso de clases abstractas usando ABC (Clase Base Abstracta). Primero crearemos clases separadas que compartan interfaces comunes. En el siguiente ejercicio, se unificarán en el mismo flujo de trabajo.
+
+Configura la siguiente arquitectura:
+
+- Una clase abstracta `DataProcessor` que herede de `ABC` y defina la interfaz de procesamiento común.
+- Tres clases especializadas `NumericProcessor`, `TextProcessor` y `LogProcessor` que hereden de la clase `DataProcessor` y procesarán diferentes tipos de datos.
+- Dos métodos abstractos en `DataProcessor`: `validate`, que comprobará si los datos de entrada son apropiados para el procesador de datos actual, y `ingest`, que procesará los datos de entrada. Cada clase especializada necesitará sobrescribir estos métodos.
+- Un método estándar en `DataProcessor`: `output`, que devolverá los datos ingeridos.
+
+Debes cumplir con las siguientes restricciones:
+
+- El método `validate` se definirá como `validate(self, data: Any) -> bool` en la clase `DataProcessor`. Los métodos sobrescritos en las clases especializadas compartirán la misma firma, ya que no pueden saber qué datos se enviarán y deben aceptar cualquier tipo. Este método devuelve un `bool` que indica si los datos proporcionados pueden ser ingeridos por este procesador de datos.
+
+- El método `ingest` se definirá como `ingest(self, data: Any) -> None` en la clase `DataProcessor`. Los métodos sobrescritos en las clases especializadas tendrán sus propias firmas específicas para coincidir con los tipos que esperan. En caso de que el usuario no valide los datos antes de llamar a `ingest` y proporcione datos inválidos, se debe lanzar una excepción.
+
+- El método `output` se definirá como `output(self) -> tuple[int, str]` en la clase `DataProcessor`. No es necesario sobrescribirlo en las clases especializadas.
+
+- El `NumericProcessor` ingiere `int`, `float` y listas de ambos tipos (incluyendo listas de tipos mixtos). Luego convierte los datos en cadenas y los almacena internamente, esperando ser extraídos usando el método `output`. La firma del método `ingest` sobrescrito debe reflejar los tipos aceptados.
+
+- El `TextProcessor` ingiere `str` y listas de cadenas. Almacena los datos internamente, esperando ser extraídos usando el método `output`. La firma del método `ingest` sobrescrito debe reflejar los tipos aceptados.
+
+- El `LogProcessor` ingiere un `dict` de pares clave-valor de tipo cadena, y listas de ese tipo. Luego convierte los datos en cadenas y los almacena internamente, esperando ser extraídos usando el método `output`. La firma del método `ingest` sobrescrito debe reflejar los tipos aceptados.
+
+- El método `output` extraerá el dato más antiguo almacenado internamente en el procesador de datos, junto con el rango de procesamiento asociado dentro del procesador de datos. El dato se elimina entonces del procesador de datos.
+
+Finalmente, prueba tu arquitectura:
+
+- Crea instancias para cada clase especializada.
+- Prueba datos válidos e inválidos para cada clase a través del método `validate`.
+- Prueba al menos un dato inválido con el método `ingest` sin validación previa, y comprueba que lanza una excepción. Esto te dejará con una advertencia de mypy, a propósito.
+- Ingiere varios datos para cada procesador de datos y luego extráelos usando `output`.
+
+
+
+**Ejemplo:**
+
+Ejemplo: `> python3 data_processor.py`
+
+```
+=== Code Nexus - Data Processor ===
+Testing Numeric Processor...
+  Trying to validate input '42': True
+  Trying to validate input 'Hello': False
+  Test invalid ingestion of string 'foo' without prior validation:
+    Got exception: Improper numeric data
+  Processing data: [1, 2, 3, 4, 5]
+  Extracting 3 values...
+    Numeric value 0: 1
+    Numeric value 1: 2
+    Numeric value 2: 3
+Testing Text Processor...
+  Trying to validate input '42': False
+  Processing data: ['Hello', 'Nexus', 'World']
+  Extracting 1 value...
+    Text value 0: Hello
+Testing Log Processor...
+  Trying to validate input 'Hello': False
+  Processing data: [{'log_level': 'NOTICE', 'log_message': 'Connection to server'}, {'log_level': 'ERROR', 'log_message': 'Unauthorized access!'}]
+  Extracting 2 values...
+    Log entry 0: NOTICE: Connection to server
+    Log entry 1: ERROR: Unauthorized access!!
+```
+
+
+========================================
+
+ Capítulo V
+
+# Ejercicio 1: Procesamiento Polimórfico de un Flujo de Datos
+
+
+| Ejercicio 1 |
+|-------------|
+| Directorio: ex1/ |
+| Archivos a entregar: data_stream.py |
+| Autorizado: builtins, tipos estándar, import typing, import abc |
+
+Informe de Ingeniería: Es hora de construir un flujo de trabajo de procesamiento de flujo adaptativo que pueda manejar múltiples tipos de datos simultáneamente.
+
+Usa tu código del Ejercicio 0 y mejóralo:
+
+- Crea una clase `DataStream` que recibirá un flujo de datos que contiene diferentes tipos y luego enviará cada elemento al procesador de datos apropiado usando comportamiento polimórfico.
+- Esta clase implementará el método `def register_processor(self, proc: DataProcessor) -> None:` que permite registrar un nuevo procesador de datos para procesar el flujo de datos.
+- Esta clase implementará el método `def process_stream(self, stream: list[typing.Any]) -> None:` que analizará cada elemento de la lista recibida como parámetro y lo enviará al procesador de datos registrado apropiado. Se imprimirán mensajes de error si ningún procesador de datos puede manejar un elemento.
+- Finalmente, la clase implementará el método `def print_processors_stats(self) -> None:` para imprimir las estadísticas del flujo.
+- Crea un escenario de prueba que demuestre el procesamiento correcto de un flujo de datos. Muestra estadísticas de los procesadores de datos registrados, consume elementos usando el método `output` de cada procesador de datos y muestra las estadísticas actualizadas.
+
+
+**Ejemplo:**
+
+Ejemplo: `> python3 data_stream.py`
+
+```
+=== Code Nexus - Data Stream ===
+Initialize Data Stream...
+=== DataStream statistics ===
+No processor found, no data
+Registering Numeric Processor
+Send first batch of data on stream:
+['Hello world', [3.14, -1, 2.71], [{'log_level': 'WARNING', 'log_message': 'Telnet access! Use ssh instead'}, {'log_level': 'INFO', 'log_message': 'User will is connected'}], 42, ['Hi', 'five']]
+DataStream error - Can't process element in stream: Hello world
+DataStream error - Can't process element in stream: [{'log_level': 'WARNING', 'log_message': 'Telnet access! Use ssh instead'}, {'log_level': 'INFO', 'log_message': 'User will is connected'}]
+DataStream error - Can't process element in stream: ['Hi', 'five']
+=== DataStream statistics ===
+Numeric Processor: total 4 items processed, remaining 4 on processor
+Registering other data processors
+Send the same batch again
+=== DataStream statistics ===
+Numeric Processor: total 8 items processed, remaining 8 on processor
+Text Processor: total 3 items processed, remaining 3 on processor
+Log Processor: total 2 items processed, remaining 2 on processor
+Consume some elements from the data processors: Numeric 3, Text 2, Log 1
+=== DataStream statistics ===
+Numeric Processor: total 8 items processed, remaining 5 on processor
+Text Processor: total 3 items processed, remaining 1 on processor
+Log Processor: total 2 items processed, remaining 1 on processor
+```
+
+¿Cómo permite el polimorfismo que `DataStream` maneje diferentes tipos de datos en el flujo sin conocer sus implementaciones específicas? ¿Cuáles son los beneficios de este enfoque de diseño?
+
+====================
+
+ Capítulo VI
+
+## Ejercicio 2: Tubería de Datos
+
+
+| Ejercicio 2 |
+|-------------|
+| Directorio: ex2/ |
+| Archivos a entregar: data_pipeline.py |
+| Autorizado: builtins, tipos estándar, import typing, import abc |
+
+Informe de Ingeniería: Tu desafío final es integrar todo en una tubería de procesamiento de datos completa que demuestre el dominio de la arquitectura polimórfica a escala empresarial.
+
+Usa tu código del Ejercicio 1 y mejóralo para obtener una tubería de datos completa. Tu clase `DataStream` ya maneja correctamente los flujos de entrada. Ahora necesitas manejar la parte de salida de la tubería. Esto se logrará usando un sistema de complementos (plugins) para clases de exportación, haciéndolos compatibles con la exportación a través de pato tipado (duck typing).
+
+Implementa lo siguiente:
+
+- Una nueva clase `ExportPlugin` que herede de la clase especial `Protocol`. Esta clase definirá el siguiente método, que actuará como una restricción para cada complemento de exportación: `def process_output(self, data: list[tuple[int, str]]) -> None:`
+El tipo del parámetro `data` es una lista de tuplas que coincide con el valor de retorno del método `output` de la clase `DataProcessor`.
+- La clase `DataStream` ahora implementará el método `def output_pipeline(self, nb: int, plugin: ExportPlugin) -> None:`, para ser usado después de llamar a `process_stream`, que consumirá `nb` elementos de todos los procesadores de datos registrados y los exportará usando el complemento compatible proporcionado.
+- Crea al menos un complemento de exportación CSV y un complemento de exportación JSON. No es necesario usar una importación específica para estos complementos; crea manualmente cadenas CSV y JSON válidas.
+
+===== Página 13 =====
+
+1
+
+===== Página 14 =====
+
+1
+
+## Capítulo VII
+
+## Entrega y Envío
+
+Entrega tu asignación en tu repositorio Git como de costumbre. Solo el trabajo dentro de tu repositorio será evaluado durante la defensa. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+image[[139, 401, 217, 462]]
+
+Durante la evaluación, se te puede pedir que expliques el comportamiento polimórfico, demuestres la sobrescritura de métodos, extiendas tus sistemas con nuevos tipos de datos o modifiques el comportamiento de procesamiento. Asegúrate de entender cómo la herencia permite la reutilización de código mientras permite la especialización de comportamiento.
+
+image[[139, 519, 221, 577]]
+
+Solo necesitas entregar los archivos solicitados por el enunciado de este proyecto.

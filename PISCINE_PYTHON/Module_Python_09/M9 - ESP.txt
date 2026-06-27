@@ -1,0 +1,398 @@
+M9 - ESP
+
+Aquí tienes la traducción completa del documento `M9.pdf` al español:
+
+[Nombre del archivo]: M9.pdf
+[Inicio del contenido del archivo]
+
+===== Página 1 =====
+
+# Cosmic Data - Descubre los Modelos y la Validación con Pydantic
+
+**Resumen:** Domina la validación de datos con Pydantic a través de ejercicios con temática espacial. Aprende a crear modelos robustos, implementar validaciones personalizadas y manejar estructuras anidadas mientras gestionas flujos de datos cósmicos.
+
+**Versión:** 3.0
+
+===== Página 2 =====
+
+1 Introducción 2
+II Instrucciones para la IA 3
+III Instrucciones Generales 5
+III.1 Requisitos de Python 5
+III.2 Estructura del Proyecto 5
+III.3 Herramientas Disponibles 6
+III.4 Conceptos Clave de Pydantic 7
+IV Ejercicio 0: Datos de la Estación Espacial 8
+IV.1 Antecedentes 8
+IV.2 Requisitos 8
+V Ejercicio 1: Registros de Contacto Alienígena 10
+V.1 Antecedentes 10
+V.2 Requisitos 10
+VI Ejercicio 2: Gestión de Tripulación Espacial 13
+VI.1 Antecedentes 13
+VI.2 Requisitos 13
+VII Entrega y Revisión por Pares 16
+
+===== Página 3 =====
+
+1
+
+## Capítulo I
+
+## Introducción
+
+¡Bienvenido al Observatorio de Datos Cósmicos, la principal instalación de procesamiento de datos de la galaxia! Como Ingeniero de Datos junior, has sido asignado para validar los flujos de datos entrantes de diversas misiones espaciales, informes de contacto alienígena y sistemas de monitoreo de estaciones.
+
+Tu misión: Aprender Pydantic, la biblioteca de validación de datos más potente de Python, a través de escenarios cósmicos prácticos. Pasarás de modelos básicos a reglas de validación complejas, asegurando la integridad de los datos en todo el universo conocido.
+
+## La Temática Cósmica
+
+A lo largo de esta actividad, trabajarás con datos temáticos del espacio que hacen que el aprendizaje sea atractivo:
+
+- **Estaciones Espaciales:** Fundamentos básicos de validación de datos.
+- **Contactos Alienígenas:** Reglas de validación personalizadas y lógica.
+- **Gestión de Tripulación:** Modelos anidados y relaciones complejas.
+
+Cada ejercicio se basa en el anterior, introduciendo nuevos conceptos de Pydantic de forma progresiva.
+
+[imagen[136, 680, 220, 741]]
+
+**Consejo profesional:** Pydantic convierte automáticamente tipos compatibles (como cadenas a datetime) y proporciona mensajes de error detallados cuando falla la validación. ¡Esto lo hace perfecto para construir APIs robustas y sistemas de procesamiento de datos!
+
+===== Página 4 =====
+
+1
+
+## Capítulo II
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta esté bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+- Usa la IA para reducir tareas repetitivas o tediosas.
+- Desarrolla habilidades de creación de prompts (tanto de programación como no programación) que beneficien tu carrera futura.
+- Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos.
+- Continúa construyendo habilidades tanto técnicas como interpersonales trabajando con tus compañeros.
+- Utiliza únicamente contenido generado por IA que comprendas completamente y del cual puedas responsabilizarte.
+
+## Reglas del aprendiz:
+
+- Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para que puedas usarlas éticamente y reducir sesgos potenciales.
+- Debes reflexionar sobre tu problema antes de hacer prompts; esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso.
+- Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA.
+- Siempre debes buscar la revisión de pares; no te fíes únicamente de tu propia validación.
+
+===== Página 5 =====
+
+1
+
+## Resultados de la fase:
+
+- Desarrollar habilidades de creación de prompts tanto de propósito general como de dominio específico.
+- Aumentar tu productividad con el uso efectivo de herramientas de IA.
+- Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+- Regularmente te encontrarás con situaciones (exámenes, evaluaciones y más) donde debas demostrar comprensión real. Prepárate, sigue construyendo tanto tus habilidades técnicas como interpersonales.
+- Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad.
+- Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer perspectivas más relevantes y precisas.
+- Mientras que la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación con pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad — y fallo en mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico. Luego reviso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos — mejor, más limpio y completamente entendido.
+
+## Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías. Durante la evaluación, no puedo justificarlo y fallo en mi proyecto.
+
+===== Página 6 =====
+
+## III.1 Requisitos de Python
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe cumplir con el estándar de codificación flake8.
+- Todo el código debe incluir anotaciones de tipo completas. Verifica esto usando mypy.
+- El manejo de excepciones debe proteger los flujos de datos de la corrupción.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas.
+- Usa pip como gestor de paquetes.
+- Debes usar entornos virtuales (recomendado: venv, virtualenv o conda).
+- Debes usar Pydantic 2.x para cada ejercicio (debe instalarse vía pip). Solo otros módulos estarán listados en la sección "Permitido" de cada ejercicio.
+
+## III.2 Estructura del Proyecto
+
+- Cada ejercicio debe completarse en su propio directorio: `ex0/`, `ex1/`, `ex2/`.
+- Tu código debe demostrar comprensión de los conceptos, no solo soluciones copiadas y pegadas.
+- Todos los ejercicios se construyen uno sobre otro; complétalos en orden.
+- Documenta tu proceso de aprendizaje a través de comentarios claros en el código y nombres de variables significativos.
+- Entrega tu trabajo en el repositorio Git asignado.
+
+===== Página 7 =====
+
+1
+
+## III.3 Herramientas Disponibles
+
+Esta actividad incluye herramientas de generación de datos para ayudarte a probar tus modelos de Pydantic:
+
+- `data_generator.py` - Genera datos de prueba realistas para todos los ejercicios.
+- `data_exporter.py` - Exporta datos en formatos JSON, CSV y Python.
+- `generated_data/` - Conjuntos de datos pregenerados listos para usar.
+
+[imagen[141, 266, 225, 323]]
+
+**Importaciones permitidas:** Puedes importar datos JSON y CSV desde el directorio de herramientas. Los módulos de la biblioteca estándar (json, csv, datetime, etc.) están permitidos.
+
+[imagen[139, 383, 222, 435]]
+
+**Importante:** Esta actividad se centra en la sintaxis de Pydantic v2. Evita decoradores obsoletos como `@validator` — usa `@model_validator` para validaciones personalizadas.
+
+===== Página 8 =====
+
+## III.4 Conceptos Clave de Pydantic
+
+### `BaseModel`
+
+La base de todos los modelos de Pydantic. Hereda de `BaseModel` para crear clases de datos validadas.
+
+### `Field`
+
+Usa `Field(...)` para añadir restricciones de validación, descripciones y valores predeterminados a los atributos del modelo.
+
+### `@model_validator`
+
+Usa el decorador `@model_validator(mode='after')` para lógica de validación personalizada que se ejecuta después de la validación incorporada de Pydantic. Esto reemplaza al decorador `@validator` obsoleto de Pydantic v1.
+
+===== Página 9 =====
+
+## Capítulo IV
+
+# Ejercicio 0: Datos de la Estación Espacial
+
+| Ejercicio 0 | Datos de la Estación Espacial |
+|---|---|
+| Directorio: | ex0/ |
+| Archivos a entregar: | space_station.py |
+| Permitido: | Ninguno |
+
+[imagen[118, 476, 224, 540]]
+
+**Objetivo:** Aprender la creación básica de modelos de Pydantic con `BaseModel` y validación con `Field`.
+
+## IV.1 Antecedentes
+
+El Observatorio de Datos Cósmicos monitorea cientos de estaciones espaciales en toda la galaxia. Cada estación reporta estadísticas vitales que incluyen tamaño de la tripulación, niveles de energía y estado operativo. Tu primera tarea es crear un sistema de validación para estos datos críticos.
+
+## IV.2 Requisitos
+
+### Modelo `SpaceStation`
+
+Crea un modelo de Pydantic con estos campos validados:
+
+- `station_id`: Cadena, 3-10 caracteres
+- `name`: Cadena, 1-50 caracteres
+- `crew_size`: Entero, 1-20 personas
+- `power_level`: Flotante, 0.0-100.0 por ciento
+- `oxygen_level`: Flotante, 0.0-100.0 por ciento
+- `last_maintenance`: Campo DateTime
+- `is_operational`: Booleano, por defecto `True`
+- `notes`: Cadena opcional, máximo 200 caracteres
+
+### Función de Demostración
+
+Incluye una función `main()` que:
+
+- Cree una instancia de estación espacial válida.
+- Muestre la información de la estación claramente.
+- Intente crear una estación inválida (ej., `crew_size > 20`).
+- Muestre el mensaje de error de validación.
+
+**Ejemplo de Salida Esperada:**
+
+```
+Space Station Data Validation
+==============
+Valid station created:
+  ID: ISS001
+  Name: International Space Station
+  Crew: 6 people
+  Power: 85.5%
+  Oxygen: 92.3%
+  Status: Operational
+
+Expected validation error:
+  Input should be less than or equal to 20
+```
+
+**Piensa en:** ¿Cómo funciona la conversión automática de tipos de Pydantic? ¿Qué sucede cuando pasas una marca de tiempo en cadena a un campo datetime?
+
+===== Página 11 =====
+
+## Capítulo V
+
+# Ejercicio 1: Registros de Contacto Alienígena
+
+| Ejercicio 1 | Registros de Contacto Alienígena |
+|---|---|
+| Directorio: | ex1/ |
+| Archivos a entregar: | alien_contact.py |
+| Permitido: | Ninguno |
+
+[imagen[118, 476, 224, 543]]
+
+**Objetivo:** Dominar la validación personalizada usando `@model_validator` para reglas de negocio complejas.
+
+## V.1 Antecedentes
+
+El Observatorio recibe informes de contacto alienígena de toda la galaxia. Estos informes sensibles requieren reglas de validación sofisticadas que van más allá de simples restricciones de campo. Diferentes tipos de contacto tienen diferentes requisitos, y ciertas combinaciones de datos indican informes potencialmente fraudulentos.
+
+## V.2 Requisitos
+
+### Enum `ContactType`
+
+Define los tipos de contacto: `radio`, `visual`, `physical`, `telepathic`
+
+### Modelo `AlienContact`
+
+Crea un modelo de Pydantic con estos campos:
+
+- `contact_id`: Cadena, 5-15 caracteres
+- `timestamp`: DateTime del contacto
+- `location`: Cadena, 3-100 caracteres
+- `contact_type`: Enum `ContactType`
+- `signal_strength`: Flotante, escala 0.0-10.0
+- `duration_minutes`: Entero, 1-1440 (máximo 24 horas)
+- `witness_count`: Entero, 1-100 personas
+- `message_received`: Cadena opcional, máximo 500 caracteres
+- `is_verified`: Booleano, por defecto `False`
+
+### Reglas de Validación Personalizadas
+
+Implementa `@model_validator(mode='after')` con estas reglas de negocio:
+
+- El ID de contacto debe comenzar con 'AC' (Alien Contact).
+- Los informes de contacto físico (`physical`) deben ser verificados.
+- El contacto telepático requiere al menos 3 testigos.
+- Las señales fuertes (> 7.0) deberían incluir mensajes recibidos.
+
+===== Página 13 =====
+
+1
+
+### Función de Demostración
+
+Muestra informes de contacto válidos e inválidos con mensajes de error claros.
+
+**Ejemplo de Salida Esperada:**
+
+[imagen[122, 168, 879, 332]]
+
+[imagen[132, 383, 222, 442]]
+
+**Consejo avanzado:** El decorador `@model_validator` te permite validar todo el modelo después de que todos los campos han sido validados. Recuerda devolver `self` al final de tu función validadora.
+
+===== Página 14 =====
+
+## Capítulo VI
+
+# Ejercicio 2: Gestión de Tripulación Espacial
+
+| Ejercicio 2 | Gestión de Tripulación Espacial |
+|---|---|
+| Directorio: | ex2/ |
+| Archivos a entregar: | space_crew.py |
+| Permitido: | Ninguno |
+
+[imagen[118, 476, 224, 540]]
+
+**Objetivo:** Dominar los modelos anidados de Pydantic y las relaciones complejas de datos.
+
+## VI.1 Antecedentes
+
+Las misiones espaciales requieren una gestión cuidadosa de la tripulación. Cada misión tiene múltiples miembros de tripulación con diferentes rangos, especializaciones y niveles de experiencia. El Observatorio necesita validar que las tripulaciones de las misiones cumplan con los requisitos de seguridad y operativos antes de aprobar el lanzamiento.
+
+## VI.2 Requisitos
+
+### Enum `Rank`
+
+Define los rangos de tripulación: `cadet`, `officer`, `lieutenant`, `captain`, `commander`
+
+### Modelo `CrewMember`
+
+Miembro individual de la tripulación con estos campos:
+
+- `member_id`: Cadena, 3-10 caracteres
+- `name`: Cadena, 2-50 caracteres
+- `rank`: Enum `Rank`
+- `age`: Entero, 18-80 años
+- `specialization`: Cadena, 3-30 caracteres
+- `years_experience`: Entero, 0-50 años
+- `is_active`: Booleano, por defecto `True`
+
+### Modelo `SpaceMission`
+
+Misión con lista de tripulación y estos campos:
+
+- `mission_id`: Cadena, 5-15 caracteres
+- `mission_name`: Cadena, 3-100 caracteres
+- `destination`: Cadena, 3-50 caracteres
+- `launch_date`: DateTime
+- `duration_days`: Entero, 1-3650 días (máximo 10 años)
+- `crew`: Lista de `CrewMember`, 1-12 miembros
+- `mission_status`: Cadena, por defecto 'planned'
+- `budget_millions`: Flotante, 1.0-10000.0 millones de dólares
+
+### Reglas de Validación de la Misión
+
+Implementa `@model_validator(mode='after')` con estos requisitos de seguridad:
+
+- El ID de la misión debe comenzar con 'M'.
+- Debe tener al menos un Comandante o Capitán.
+- Las misiones largas (>365 días) necesitan 50% de tripulación experimentada (5+ años).
+- Todos los miembros de la tripulación deben estar activos.
+
+===== Página 16 =====
+
+1
+
+### Función de Demostración
+
+Muestra una misión válida con detalles de la tripulación y una misión inválida que falla la validación.
+
+**Ejemplo de Salida Esperada:**
+
+[imagen[122, 169, 879, 365]]
+
+[imagen[122, 408, 219, 472]]
+
+**Piensa en:** ¿Cómo maneja Pydantic la validación de modelos anidados? ¿Qué sucede cuando un `CrewMember` falla la validación dentro de un `SpaceMission`?
+
+===== Página 17 =====
+
+1
+
+## Capítulo VII
+
+## Entrega y Revisión por Pares
+
+Entrega tu tarea en tu repositorio Git como siempre. Solo se evaluará el trabajo dentro de tu repositorio durante la defensa. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+[imagen[138, 405, 220, 454]]
+
+Solo necesitas entregar los archivos solicitados por el enunciado de esta actividad.
+
+[Fin del contenido del archivo]

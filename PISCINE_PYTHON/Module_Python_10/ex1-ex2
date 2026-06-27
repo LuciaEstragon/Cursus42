@@ -1,0 +1,276 @@
+## Traducción al español
+
+**Capítulo V**
+**Ejercicio 0: Sanctum Lambda**
+Exercise0
+ex0
+Directorio: ex0/
+Archivos a entregar: lambda_spells.py
+Permitido: map, filter, sorted, min, max, round, sum, len
+
+Para este ejercicio, debes usar expresiones lambda para todas las transformaciones. No uses la palabra clave 'def' para crear funciones nombradas para operaciones simples, como tareas de una sola vez u operaciones fáciles de leer. El objetivo es dominar las funciones anónimas y los patrones de programación funcional.
+
+**El Sanctum Lambda: Dominando las Funciones Anónimas**
+
+¡Bienvenido al Sanctum Lambda, joven mago! Aquí se enseña el antiguo arte de las funciones anónimas. Las expresiones lambda son como conjuros rápidos: hechizos cortos y poderosos que pueden transformar datos sin la ceremonia de definiciones completas de funciones.
+
+**Tu Misión:** Dominar el arte de las expresiones lambda ayudando al guardián del Sanctum, Sage Lambda, a organizar artefactos mágicos usando funciones anónimas. Aprende a crear funciones sobre la marcha para transformación de datos.
+
+**El Desafío**
+
+Crea un archivo `lambda_spells.py` que contenga funciones que demuestren el dominio de lambda:
+
+**Firmas de Funciones:**
+```python
+def artifact_sorter(artifacts: list[dict]) -> list[dict]
+def power_filter(mages: list[dict], min_power: int) -> list[dict]
+def spell_transformer(spells: list[str]) -> list[str]
+def mage_stats(mages: list[dict]) -> dict
+```
+
+**Requisitos de Implementación**
+
+- `artifact_sorter(artifacts)` - Ordenar artefactos mágicos:
+  - Usa `sorted()` con una lambda para ordenar por nivel de 'power' (descendente)
+  - Cada artefacto es un dict: `{'name': str, 'power': int, 'type': str}`
+  - Devuelve la lista ordenada
+
+- `power_filter(mages, min_power)` - Filtrar magos por poder:
+  - Usa `filter()` con una lambda para encontrar magos con power >= min_power
+  - Cada mago es un dict: `{'name': str, 'power': int, 'element': str}`
+  - Devuelve una lista de magos filtrados
+
+- `spell_transformer(spells)` - Transformar nombres de hechizos:
+  - Usa `map()` con una lambda para añadir prefijo "* " y sufijo " *"
+  - Entrada: lista de nombres de hechizos (strings)
+  - Devuelve una lista de nombres de hechizos transformados
+
+- `mage_stats(mages)` - Calcular estadísticas:
+  - Usa lambdas con `max()`, `min()` para encontrar:
+    - Nivel de poder del mago más poderoso
+    - Nivel de poder del mago menos poderoso
+    - Nivel de poder promedio (redondeado a 2 decimales)
+  - Devuelve dict: `{'max_power': int, 'min_power': int, 'avg_power': float}`
+
+---
+
+**Capítulo VI**
+**Ejercicio 1: Reino Superior**
+Exercise1
+ex1
+Directorio: ex1/
+Archivos a entregar: higher_magic.py
+Permitido: callable(), Callable
+
+**El Reino Superior: Funciones que Operan sobre Funciones**
+
+¡Bienvenido al Reino Superior, donde las funciones se convierten en sujetos de otras funciones! Aquí aprenderás que las funciones son ciudadanos de primera clase: pueden ser pasadas como argumentos, devueltas desde otras funciones y almacenadas en estructuras de datos.
+
+**Tu Misión:** Ayudar al guardián del Reino, Mage Functional, a crear un sistema de creación de hechizos donde las funciones puedan modificar, combinar y potenciar otras funciones. ¡Domina el arte de las funciones de orden superior!
+
+**El Desafío**
+
+Crea un archivo `higher_magic.py` que demuestre el dominio de funciones de orden superior:
+
+**Contexto**
+
+Cada hechizo en tu grimorio sigue el mismo contrato:
+```python
+def spell(target: str, power: int) -> str
+```
+Un hechizo toma un objetivo y un nivel de poder y devuelve una cadena de descripción de lo que ocurrió.
+
+**Las siguientes funciones deben ser implementadas:**
+
+**Firmas de Funciones:**
+```python
+def spell_combiner(spell1: Callable, spell2: Callable) -> Callable
+def power_amplifier(base_spell: Callable, multiplier: int) -> Callable
+def conditional_caster(condition: Callable, spell: Callable) -> Callable
+def spell_sequence(spells: list[Callable]) -> Callable
+```
+
+**Requisitos de Implementación**
+
+- `spell_combiner(spell1, spell2)` - Combinar dos hechizos:
+  - Devuelve una nueva función que llama a ambos hechizos con los mismos argumentos
+  - El hechizo combinado debe devolver una tupla con ambos resultados
+
+- `power_amplifier(base_spell, multiplier)` - Amplificar poder de hechizo:
+  - Devuelve una función con la misma firma que el hechizo original
+  - Devuelve un nuevo hechizo donde el poder se multiplica antes de lanzarlo
+
+- `conditional_caster(condition, spell)` - Lanzar hechizo condicionalmente:
+  - Devuelve un nuevo hechizo que solo se lanza si una condición es True
+  - Si la condición falla, devuelve "Spell fizzled"
+  - Tanto condition como spell reciben los mismos argumentos
+
+- `spell_sequence(spells)` - Crear secuencia de hechizos:
+  - Devuelve una función que lanza todos los hechizos en orden
+  - Cada hechizo recibe los mismos argumentos
+  - Devuelve una lista de todos los resultados
+
+---
+
+## Solución de los dos primeros ejercicios
+
+### Ejercicio 0: lambda_spells.py
+
+```python
+# lambda_spells.py
+# Ejercicio 0: Lambda Sanctum
+
+from typing import List, Dict, Any
+
+def artifact_sorter(artifacts: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """
+    Ordena artefactos por nivel de poder (descendente) usando lambda.
+    """
+    return sorted(artifacts, key=lambda a: a['power'], reverse=True)
+
+
+def power_filter(mages: List[Dict[str, Any]], min_power: int) -> List[Dict[str, Any]]:
+    """
+    Filtra magos con poder >= min_power usando lambda con filter().
+    """
+    return list(filter(lambda m: m['power'] >= min_power, mages))
+
+
+def spell_transformer(spells: List[str]) -> List[str]:
+    """
+    Transforma nombres de hechizos añadiendo "* " al inicio y " *" al final.
+    """
+    return list(map(lambda s: f"* {s} *", spells))
+
+
+def mage_stats(mages: List[Dict[str, Any]]) -> Dict[str, float]:
+    """
+    Calcula estadísticas de poder de los magos usando lambdas.
+    """
+    if not mages:
+        return {'max_power': 0, 'min_power': 0, 'avg_power': 0.0}
+    
+    powers = [m['power'] for m in mages]
+    max_power = max(powers, key=lambda p: p)
+    min_power = min(powers, key=lambda p: p)
+    avg_power = round(sum(powers) / len(powers), 2)
+    
+    return {'max_power': max_power, 'min_power': min_power, 'avg_power': avg_power}
+
+
+# Código de demostración (no obligatorio para la entrega)
+if __name__ == "__main__":
+    # Prueba de artifact_sorter
+    artifacts = [
+        {'name': 'Crystal Orb', 'power': 85, 'type': 'orb'},
+        {'name': 'Fire Staff', 'power': 92, 'type': 'staff'},
+        {'name': 'Shadow Dagger', 'power': 70, 'type': 'dagger'}
+    ]
+    sorted_artifacts = artifact_sorter(artifacts)
+    print("Testing artifact sorter...")
+    for a in sorted_artifacts:
+        print(f"{a['name']} ({a['power']} power)")
+    
+    # Prueba de spell_transformer
+    spells = ['fireball', 'heal', 'shield']
+    transformed = spell_transformer(spells)
+    print("\nTesting spell transformer...")
+    print(' '.join(transformed))
+```
+
+### Ejercicio 1: higher_magic.py
+
+```python
+# higher_magic.py
+# Ejercicio 1: Higher Realm
+
+from typing import Callable, Tuple, List, Any
+
+def spell_combiner(spell1: Callable[[str, int], str], 
+                   spell2: Callable[[str, int], str]) -> Callable[[str, int], Tuple[str, str]]:
+    """
+    Combina dos hechizos. Devuelve una función que llama a ambos
+    con los mismos argumentos y devuelve una tupla con los resultados.
+    """
+    def combined(target: str, power: int) -> Tuple[str, str]:
+        return (spell1(target, power), spell2(target, power))
+    return combined
+
+
+def power_amplifier(base_spell: Callable[[str, int], str], 
+                    multiplier: int) -> Callable[[str, int], str]:
+    """
+    Amplifica el poder de un hechizo multiplicándolo antes de lanzarlo.
+    """
+    def amplified(target: str, power: int) -> str:
+        return base_spell(target, power * multiplier)
+    return amplified
+
+
+def conditional_caster(condition: Callable[[str, int], bool], 
+                       spell: Callable[[str, int], str]) -> Callable[[str, int], str]:
+    """
+    Lanza el hechizo solo si la condición se cumple.
+    Si no, devuelve "Spell fizzled".
+    """
+    def conditional(target: str, power: int) -> str:
+        if condition(target, power):
+            return spell(target, power)
+        return "Spell fizzled"
+    return conditional
+
+
+def spell_sequence(spells: List[Callable[[str, int], str]]) -> Callable[[str, int], List[str]]:
+    """
+    Crea una secuencia de hechizos. Devuelve una función que lanza
+    todos los hechizos en orden con los mismos argumentos.
+    """
+    def sequence(target: str, power: int) -> List[str]:
+        return [spell(target, power) for spell in spells]
+    return sequence
+
+
+# Código de demostración (no obligatorio para la entrega)
+if __name__ == "__main__":
+    # Definimos algunos hechizos de ejemplo
+    def fireball(target: str, power: int) -> str:
+        return f"Fireball hits {target} for {power} damage"
+    
+    def heal(target: str, power: int) -> str:
+        return f"Heal restores {target} for {power} HP"
+    
+    # Prueba de spell_combiner
+    combined_spell = spell_combiner(fireball, heal)
+    print("Testing spell combiner...")
+    result = combined_spell("Dragon", 50)
+    print(f"Combined spell result: {result[0]}, {result[1]}")
+    
+    # Prueba de power_amplifier
+    amplified_fireball = power_amplifier(fireball, 3)
+    print("\nTesting power amplifier...")
+    original = fireball("Goblin", 10)
+    amplified = amplified_fireball("Goblin", 10)
+    print(f"Original: {original}")
+    print(f"Amplified: {amplified}")
+    
+    # Prueba de conditional_caster
+    def is_strong_enough(target: str, power: int) -> bool:
+        return power >= 20
+    
+    conditional_heal = conditional_caster(is_strong_enough, heal)
+    print("\nTesting conditional caster...")
+    print(conditional_heal("Warrior", 15))
+    print(conditional_heal("Warrior", 25))
+    
+    # Prueba de spell_sequence
+    spell_list = [fireball, heal]
+    sequence_spell = spell_sequence(spell_list)
+    print("\nTesting spell sequence...")
+    results = sequence_spell("Orc", 30)
+    for r in results:
+        print(r)
+```
+
+---
+
+**Nota:** Ambos códigos cumplen con los requisitos de los ejercicios. El bloque `if __name__ == "__main__":` es solo para demostración y no es obligatorio para la entrega, pero ayuda a verificar el funcionamiento.

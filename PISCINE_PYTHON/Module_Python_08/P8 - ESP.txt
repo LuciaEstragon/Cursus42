@@ -1,0 +1,440 @@
+M8 - ESP
+
+Aquí tienes la traducción completa del documento `M8.pdf` al español:
+
+[Nombre del archivo]: M8.pdf
+[Inicio del contenido del archivo]
+
+===== Página 1 =====
+
+# The Matrix
+
+## Bienvenido al Mundo Real de la Ingeniería de Datos
+
+**Resumen:** Has tomado la píldora roja. Ahora es momento de aprender a arquitecturar sistemas de datos en el mundo real. Domina los entornos virtuales, la gestión de paquetes y la configuración de entorno para construir tu primera tubería de datos.
+
+**Versión:** 3.0
+
+===== Página 2 =====
+
+1 Prólogo 2
+2 Instrucciones para la IA 3
+3 Instrucciones Generales 5
+4 Ejercicio 0: Entrando en la Matriz 6
+5 Ejercicio 1: Cargando Programas 9
+6 Ejercicio 2: Accediendo al Computador Central 12
+7 Entrega y Revisión por Pares 15
+
+===== Página 3 =====
+
+1
+
+## Capítulo I
+
+## Prólogo
+
+[imagen[142, 328, 216, 391]]
+
+"Esta es tu última oportunidad. Después de esto, no hay vuelta atrás. Tomas la píldora azul; la historia termina, despiertas en tu cama y crees lo que quieras creer. Tomas la píldora roja; te quedas en el País de las Maravillas, y te muestro lo profundo que es el agujero del conejo." — Morfeo
+
+Bienvenido al mundo real. Has descubierto que lo que creías realidad era solo una simulación. Ahora, como Arquitecto de Datos en Zion, debes aprender a construir sistemas de datos robustos que puedan resistir los ataques de las máquinas.
+
+En esta actividad, descubrirás las herramientas fundamentales que todo ingeniero de datos utiliza para crear entornos aislados, gestionar dependencias de programas y configurar variables de sistema. Estas no son solo habilidades técnicas; son herramientas de supervivencia en la guerra contra las máquinas.
+
+[imagen[139, 631, 219, 684]]
+
+Recuerda: No hay cuchara. Pero hay entornos virtuales, y son muy reales.
+
+===== Página 4 =====
+
+1
+
+## Capítulo II
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta esté bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+Usa la IA para reducir tareas repetitivas o tediosas. Desarrolla habilidades de creación de prompts (tanto de programación como no programación) que beneficien tu carrera futura. Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos. Continúa construyendo habilidades tanto técnicas como interpersonales trabajando con tus compañeros. Utiliza únicamente contenido generado por IA que comprendas completamente y del cual puedas responsabilizarte.
+
+## Reglas del aprendiz:
+
+Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para que puedas usarlas éticamente y reducir sesgos potenciales. Debes reflexionar sobre tu problema antes de hacer prompts; esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso. Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA. Siempre debes buscar la revisión de pares; no te fíes únicamente de tu propia validación.
+
+===== Página 5 =====
+
+1
+
+## Resultados de la fase:
+
+Resultados de la fase: Desarrollar habilidades de creación de prompts tanto de propósito general como de dominio específico. Aumentar tu productividad con el uso efectivo de herramientas de IA. Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+Te encontrarás regularmente con situaciones (exámenes, evaluaciones y más) donde debas demostrar comprensión real. Prepárate, sigue construyendo tanto tus habilidades técnicas como interpersonales. Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad. Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer perspectivas más relevantes y precisas. Mientras que la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación con pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad — y fallo en mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico. Luego reviso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos — mejor, más limpio y completamente entendido.
+
+## Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías. Durante la evaluación, no puedo justificarlo y fallo en mi proyecto.
+
+===== Página 6 =====
+
+1
+
+## Capítulo III
+
+## Instrucciones Generales
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe cumplir con el estándar de codificación flake8.
+- Todo el código debe incluir anotaciones de tipo completas. Verifica esto usando mypy.
+- El manejo de excepciones debe proteger los flujos de datos de la corrupción.
+- Todas las clases y colecciones estándar están autorizadas, junto con sus métodos (int, str, list, dict, etc.).
+- Todas las funciones integradas están autorizadas.
+- Prueba tus programas en diferentes entornos (con/sin entorno virtual, con/sin dependencias).
+
+===== Página 7 =====
+
+## Capítulo IV
+
+# Ejercicio 0: Entrando en la Matriz
+
+| Ejercicio 0 | construct |
+|---|---|
+| Directorio: | ex0/ |
+| Archivos a entregar: | construct.py |
+| Autorizado: | módulos sys, os, site, print() |
+
+## El Constructo
+
+[imagen[118, 540, 220, 600]]
+
+"¿Qué es real? ¿Cómo defines 'real'?" — Morfeo
+
+Antes de que alguien pudiera aprender a doblar las reglas, tenía que entender el constructo; un entorno seguro y aislado donde pudieran entrenar sin afectar al mundo real. En ingeniería de datos, a esto lo llamamos un entorno virtual.
+
+Tu primera misión es crear un programa de entrenamiento que demuestre tu comprensión de los entornos virtuales de Python. Las máquinas han corrompido la instalación global de Python y necesitas crear un espacio limpio y aislado para trabajar.
+
+===== Página 8 =====
+
+1
+
+## Instrucciones de la Misión
+
+Crea un programa llamado `construct.py` que:
+
+- Detecte si se está ejecutando dentro de un entorno virtual.
+- Muestre información sobre el entorno Python actual.
+- Proporcione instrucciones para crear y activar un entorno virtual si no se detecta ninguno.
+- Muestre la diferencia entre las ubicaciones de paquetes del entorno global y el virtual.
+
+[imagen[119, 316, 223, 377]]
+
+Tu programa debe funcionar tanto dentro como fuera de entornos virtuales, proporcionando diferentes salidas para cada escenario.
+
+## Ejemplos de Uso
+
+Aquí hay algunos ejemplos de cómo probar tu programa:
+
+**Prueba fuera del entorno virtual:**
+```bash
+python3 construct.py
+# Debería detectar que no hay entorno virtual y proporcionar instrucciones
+```
+
+**Creando y probando el entorno virtual:**
+```bash
+python3 -m venv matrix_env
+$ source matrix_env/bin/activate
+(matrix_env) $ python3 construct.py
+# Debería detectar el entorno virtual y mostrar detalles
+```
+
+[imagen[119, 672, 223, 732]]
+
+**No** entregues tu entorno virtual en tu repositorio. Debes poder crear uno nuevo durante la revisión si es necesario.
+
+===== Página 9 =====
+
+## Salida Esperada
+
+**Cuando se ejecuta fuera de un entorno virtual:**
+
+```
+Outside the Matrix
+$> python construct.py
+MATRIX STATUS: You're still plugged in
+Current Python: /usr/bin/python3.11
+Virtual Environment: None detected
+
+WARNING: You're in the global environment! The machines can see everything you install.
+
+To enter the construct, run:
+python -m venv matrix_env
+source matrix_env/bin/activate   # On Unix
+matrix_env\Scripts\activate      # On Windows
+Then run this program again.
+```
+
+**Cuando se ejecuta dentro de un entorno virtual:**
+
+```
+Inside the Construct
+$> python construct.py
+MATRIX STATUS: Welcome to the construct
+Current Python: /path/to/matrix_env/bin/python
+Virtual Environment: matrix_env
+Environment Path: /path/to/matrix_env
+
+SUCCESS: You're in an isolated environment! Safe to install packages without affecting the global system.
+Package installation path: /path/to/matrix_env/lib/python3.11/site-packages
+```
+
+===== Página 10 =====
+
+## Capítulo V
+
+# Ejercicio 1: Cargando Programas
+
+| Ejercicio 1 | loading |
+|---|---|
+| Directorio: | ex1/ |
+| Archivos a entregar: | loading.py, requirements.txt, pyproject.toml |
+| Autorizado: | pandas, requests, matplotlib, numpy, sys, importlib |
+
+## Cargando Programas
+
+[imagen[135, 555, 222, 612]]
+
+"Necesito armas. Muchas armas." — Neo
+
+Así como los luchadores de la resistencia necesitaban armas cargadas en sus mentes, los ingenieros de datos necesitan paquetes cargados en sus entornos. Pero a diferencia de las descargas instantáneas de la Matriz, necesitamos gestionar las dependencias cuidadosamente para evitar conflictos.
+
+Tu misión es crear un programa que demuestre el dominio de la gestión de paquetes usando tanto pip como Poetry. Construirás una herramienta de análisis de datos que requiere bibliotecas externas.
+
+===== Página 11 =====
+
+1
+
+## Instrucciones de la Misión
+
+Crea un programa de análisis de datos llamado `loading.py` que:
+
+- Use `pandas` para la manipulación de datos.
+- Use `numpy` para cálculos numéricos y para generar tus datos simulados de la Matriz. Debe ser la fuente de tu conjunto de datos — no listas codificadas o range().
+- Use `matplotlib` para la visualización.
+- Demuestre la diferencia entre la gestión de dependencias con pip y Poetry.
+- Incluya archivos de dependencias adecuados para ambos enfoques.
+
+Tu programa debe analizar "datos de la Matriz" (puedes simularlos con datos de muestra) y generar una visualización simple.
+
+Por defecto, simula tus datos de la Matriz usando numpy. Si optas por obtener datos reales de una API externa, puedes usar requests — pero no es obligatorio.
+
+## Requisitos
+
+- Crea tanto `requirements.txt` (para pip) como `pyproject.toml` (para Poetry).
+- Tu programa debe manejar las dependencias faltantes con elegancia.
+- Incluye una función de comparación que muestre las versiones de los paquetes instalados.
+- Muestra las diferencias entre pip y Poetry a través de la salida de tu programa.
+
+[imagen[139, 655, 220, 708]]
+
+Tu programa debe detectar qué paquetes están disponibles y proporcionar mensajes de error útiles si faltan dependencias.
+
+[imagen[139, 772, 223, 833]]
+
+Excepcionalmente, los errores de flake8 y mypy están permitidos para este ejercicio, solo para errores de importación. Sin embargo, hay cierta mecánica e implementación para evitar esos errores, si tienes curiosidad y quieres profundizar.
+
+===== Página 12 =====
+
+1
+
+## Ejemplos de Uso
+
+**Prueba sin dependencias:**
+```bash
+$> python3 loading.py
+# Debería mostrar las dependencias faltantes y las instrucciones de instalación para pip y Poetry
+```
+
+**Instalando con pip:**
+```bash
+$> pip install -r requirements.txt
+$> python3 loading.py
+# Debería ejecutar el análisis y crear la visualización
+```
+
+**Instalando con Poetry:**
+```bash
+$> poetry install
+$> poetry run python loading.py
+# Debería ejecutar el análisis y crear la visualización con el entorno de Poetry
+```
+
+## Comportamiento Esperado
+
+```
+Loading Programs
+$> python loading.py
+LOADING STATUS: Loading programs...
+Checking dependencies:
+  [OK] pandas (2.1.0) - Data manipulation ready
+  [OK] numpy (1.25.0) - Numerical computation ready
+  [OK] requests (2.31.0) - Network access ready
+  [OK] matplotlib (3.7.2) - Visualization ready
+
+Analyzing Matrix data...
+Processing 1000 data points...
+Generating visualization...
+
+Analysis complete! Results saved to: matrix_analysis.png
+```
+
+*La línea de requests solo aparece si obtienes datos de una API.*
+
+===== Página 13 =====
+
+## Capítulo VI
+
+# Ejercicio 2: Accediendo al Computador Central
+
+| Ejercicio 2 | oracle |
+|---|---|
+| Directorio: | ex2/ |
+| Archivos a entregar: | oracle.py, .env.example, .gitignore |
+| Autorizado: | módulos os, sys, python-dotenv, operaciones de archivos |
+
+## El Oráculo
+
+[imagen[148, 544, 216, 601]]
+
+"Conócete a ti mismo." — El Oráculo
+
+El Oráculo lo sabe todo porque tiene acceso a la configuración del computador central. En el mundo real, las aplicaciones necesitan acceder a información sensible como credenciales de bases de datos, claves de API y configuraciones del sistema sin codificarlas directamente.
+
+Tu misión final es crear un sistema de configuración seguro utilizando variables de entorno y archivos `.env`. Construirás una tubería de datos que se conecta a sistemas externos de manera segura.
+
+===== Página 14 =====
+
+1
+
+Debes usar la biblioteca `python-dotenv` para cargar variables de entorno desde archivos `.env`. El objetivo es aprender a usar archivos `.env` para la gestión de configuraciones, no implementar un analizador sintáctico personalizado.
+
+## Instrucciones de la Misión
+
+Crea un programa llamado `oracle.py` que:
+
+- Cargue la configuración desde variables de entorno.
+- Use un archivo `.env` para la configuración de desarrollo.
+- Demuestre diferentes configuraciones para desarrollo/producción.
+- Incluya un manejo adecuado de errores para configuraciones faltantes.
+
+[imagen[118, 383, 224, 446]]
+
+Eres libre de implementar lo que elijas para mostrar la diferencia entre desarrollo/producción. Pero debe ser visible en la salida al probar tu programa.
+
+## Requisitos de Configuración
+
+Tu programa debe manejar estas variables de configuración:
+
+- `MATRIX_MODE` - 'development' o 'production'
+- `DATABASE_URL` - Cadena de conexión para almacenamiento de datos
+- `API_KEY` - Clave secreta para servicios externos
+- `LOG_LEVEL` - Verbosidad del registro
+- `ZION_ENDPOINT` - URL para la red de resistencia
+
+[imagen[138, 728, 220, 780]]
+
+**Nunca** entregues secretos reales al control de versiones. Tu archivo `.env` debe estar en `.gitignore`. Debes ser capaz de explicar por qué.
+
+===== Página 15 =====
+
+1
+
+## Ejemplos de Uso
+
+**Prueba sin configuración:**
+```bash
+$> python oracle.py
+# Debería mostrar advertencias sobre configuración faltante
+```
+
+**Usando archivo .env:**
+```bash
+$> cp .env.example .env
+$> # Edita .env con tus valores
+$> python oracle.py
+# Debería cargar la configuración desde el archivo .env
+```
+
+**Sobrescritura con variables de entorno:**
+```bash
+$> MATRIX_MODE=production API_KEY=secret123 python oracle.py
+# Debería usar las variables de entorno en lugar del archivo .env
+```
+
+## Ejemplo de Salida Esperada
+
+```
+Accessing the Mainframe
+$> python oracle.py
+ORACLE STATUS: Reading the Matrix...
+Configuration loaded:
+  Mode: development
+  Database: Connected to local instance
+  API Access: Authenticated
+  Log Level: DEBUG
+  Zion Network: Online
+
+Environment security check:
+  [OK] No hardcoded secrets detected
+  [OK] .env file properly configured
+  [OK] Production overrides available
+
+The Oracle sees all configurations.
+```
+
+===== Página 16 =====
+
+1
+
+## Capítulo VII
+
+## Entrega y Revisión por Pares
+
+[imagen[138, 324, 221, 384]]
+
+"Hay una diferencia entre conocer el camino y caminar el camino." — Morfeo
+
+Entrega tu tarea en tu repositorio Git como siempre. Solo se evaluará el trabajo dentro de tu repositorio durante la revisión por pares. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+Durante la revisión por pares, demostrarás:
+
+- Tu comprensión de los entornos virtuales y por qué son importantes.
+- Las diferencias entre pip y Poetry para la gestión de dependencias.
+- Cómo las variables de entorno mantienen las aplicaciones seguras y configurables.
+- Tu capacidad para explicar estos conceptos a otros aprendices.
+
+Recuerda: El objetivo no es solo hacer que el código funcione; es entender el "porqué" detrás de estas herramientas. En el mundo real de la ingeniería de datos, estas habilidades mantendrán tus sistemas seguros, mantenibles y escalables.
+
+[imagen[118, 757, 221, 817]]
+
+"Bienvenido al mundo real." — Morfeo
+
+[Fin del contenido del archivo]

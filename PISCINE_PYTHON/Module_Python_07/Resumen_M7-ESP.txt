@@ -1,0 +1,114 @@
+M7-ESP
+
+Domina los patrones de diseño de Python con clases abstractas e interfaces construyendo un sistema de cartas modular.
+
+Imagina esto: estás diseñando un juego de cartas basado en criaturas, inspirado en populares juegos de colección de monstruos. Tus cartas no son solo objetos estáticos; son entidades de datos dinámicas que pueden agruparse en familias, y que tienen capacidades utilizadas de manera estratégica. Pero aquí está el desafío: ¿cómo crear un sistema lo suficientemente flexible como para manejar miles de tipos diferentes de cartas mientras se mantiene un código limpio y mantenible?
+¡El secreto reside en los Patrones de Programación Abstracta! Ya has manejado clases abstractas y polimorfismo en un proyecto anterior. Ahora usaremos patrones más avanzados: fábricas abstractas, capacidades adicionales y patrones de estrategia.
+En esta actividad, manipularás cartas del mundo de las Criaturas para practicar estos patrones avanzados. Al final, pensarás como un arquitecto senior, diseñando sistemas que puedan evolucionar y mejorar con el tiempo.
+
+**PRERREQUISITOS:** Esta actividad requiere dominio de herencia en Python, clases abstractas, polimorfismo e importaciones. Sugerimos que completes los proyectos relacionados antes de este.
+
+Un archivo `__init__.py` es OBLIGATORIO para cada carpeta de ejercicio. Todo el código de prueba estará ubicado en la raíz del repositorio git.
+
+
+===========
+
+
+# Ejercicio 0: Fábrica de Criaturas
+
+| Ejercicio 0 | ex0 |
+|---|---|
+| Directorio: | ex0/ |
+| Archivos a entregar: | battle.py, ex0/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+Comencemos nuestro juego con la creación de cartas de Criatura básicas. Pero, como sabrás, las Criaturas se clasifican en varias familias y pueden evolucionar. Este ejercicio se centrará en el patrón de diseño de fábrica abstracta. Implementarás los siguientes elementos en la carpeta `ex0/`:
+
+- Una clase abstracta `Creature` que contiene atributos para el nombre y el tipo de la Criatura, un método abstracto `attack` y un método concreto genérico `describe` que devolverá un mensaje estándar usando el nombre y el tipo de la Criatura.
+- Las siguientes clases concretas que heredan de `Creature`: `Flameling`, `Pyrodon`, `Aquabub` y `Torragon`. Su método `attack` devolverá un mensaje de cadena apropiado (ver ejemplo).
+- Una clase abstracta `CreatureFactory` que te permitirá crear la Criatura base y la Criatura evolucionada para la misma familia, utilizando los métodos abstractos `create_base` y `create_evolved`.
+- Las clases concretas `FlameFactory` y `AquaFactory`, que heredan de `CreatureFactory`, que manejarán la creación de la Criatura base y evolucionada para cada familia (respectivamente `Flameling` y `Pyrodon` para `FlameFactory`, y `Aquabub` y `Torragon` para `AquaFactory`).
+- Tu paquete `ex0` no puede exponer `Creature` concretas directamente, solo debe exponer fábricas.
+
+El script `battle.py`, en la raíz del repositorio, probará el paquete `ex0`. Se implementará el siguiente escenario:
+
+- Instanciar las fábricas `Flameling` y `Aquabub`.
+- Usar una única función que recibe un objeto fábrica y verifica que puede crear la Criatura base y la evolucionada, y luego cada Criatura puede ser descrita y puede atacar.
+- Otra función que recibe ambas fábricas y hace que las Criaturas base luchen.
+
+Puedes usar diferentes Criaturas, pero debes mantener los conceptos involucrados (familias y fábricas abstractas).
+
+============================================
+============================================
+
+
+# Ejercicio 1: Capacidades
+
+| Ejercicio 1 | ex1 |
+|---|---|
+| Directorio: | ex1/ |
+| Archivos a entregar: | capacitor.py, ex1/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+¡Ahora añadiremos capacidades a nuestra Criatura! Pero quizás algún día, estas capacidades no solo se aplicarán a las Criaturas. Así que queremos mantenerlas separadas: ¡las clases abstractas de capacidad no heredarán de la clase base `Creature`!
+
+En la carpeta/paquete `ex1/`, implementarás lo siguiente:
+
+- Una clase abstracta `HealCapability` que define el método abstracto `heal`. Este método puede tomar un parámetro "target" si lo deseas.
+- Una clase abstracta `TransformCapability` que define los métodos abstractos `transform` y `revert`. Se usa un atributo para hacer persistente el estado y esto impacta en la implementación de `attack` de la Criatura con esta capacidad.
+- Mantengámoslo simple: estos métodos devolverán cadenas simples que describen la acción (al igual que el método `attack`).
+- Las siguientes clases concretas que heredan tanto de `Creature` como de `HealCapability`: `Sprouting` y `Bloomelle` que forman una sola familia y estarán disponibles a través de `HealingCreatureFactory` (heredando de `CreatureFactory`).
+- Las siguientes clases concretas que heredan tanto de `Creature` como de `TransformCapability`: `Shifting` y `Morphagon` que forman una sola familia y estarán disponibles a través de `TransformCreatureFactory` (heredando de `CreatureFactory`).
+- Nuevamente, tu paquete `ex1` no puede exponer `Creature` concretas directamente, solo debe exponer fábricas.
+
+Debes, obviamente, usar el contenido del paquete `ex0` y construir este ejercicio sobre él.
+
+Ahora es momento de definir el escenario de prueba. El script `capacitor.py`, ubicado en la raíz del repositorio Git, procederá de la siguiente manera:
+
+- Crear una fábrica de Criaturas curativas.
+- Crear la Criatura base, luego la evolucionada y hacer que: 1) sean descritas; 2) ataquen; 3) curen.
+- Crear una fábrica de Criaturas transformadoras.
+- Crear la Criatura base, luego la evolucionada y hacer que: 1) sean descritas; 2) ataquen; 3) se transformen; 4) ataquen de nuevo; 5) reviertan.
+
+
+================================================
+================================================
+
+# Ejercicio 2: Estrategia Abstracta
+
+| Ejercicio 2 | ex2 |
+|---|---|
+| Directorio: | ex2/ |
+| Archivos a entregar: | tournament.py, ex2/ como un paquete con todos los archivos necesarios dentro |
+| Autorizado: | builtins, tipos estándar, import typing, import abc |
+
+Como acabamos de experimentar en el ejercicio anterior, las Criaturas con diferentes capacidades actuarán de manera diferente. En nuestro caso, la familia curativa curará después del ataque, mientras que la familia transformadora se transformará, luego atacará, luego revertirá. El día que queramos tomar múltiples cartas de Criatura de varias familias y hacer que luchen juntas en un torneo, necesitamos código de batalla que sea consciente de cada capacidad. ¿O quizás no? ¡Exploremos el patrón de estrategia abstracta! Y sí, ha llegado el día del torneo.
+
+En la carpeta/paquete `ex2/`, implementarás lo siguiente:
+
+- Una clase abstracta `BattleStrategy` que define los métodos abstractos `act` e `is_valid`. El método `is_valid` devuelve un booleano indicando si una Criatura es adecuada para la estrategia, y el método `act` será llamado por el script del torneo.
+- Tres clases concretas que heredan de `BattleStrategy`:
+  - `NormalStrategy`: adecuada para cualquier Criatura, que simplemente usará el método `attack` durante el torneo.
+  - `AggressiveStrategy`: adecuada para Criaturas con capacidades de transformación, que se transformará, atacará y revertirá durante el torneo.
+  - `DefensiveStrategy`: adecuada para Criaturas con capacidades de curación, que atacará y luego curará durante el torneo.
+- En caso de que se pruebe una combinación estrategia-Criatura inválida, el método `is_valid` devuelve `False`. Si se llama al método `act` con una combinación inválida, se lanza una excepción dedicada con un mensaje claro.
+
+=====
+
+Finalmente podemos crear nuestro torneo. El script `tournament.py`, ubicado en la raíz del repositorio Git, procederá de la siguiente manera:
+
+- Crear varias fábricas de Criaturas (de `ex0` y `ex1`).
+- Crear las tres estrategias.
+- Definir una única función de batalla que:
+  - tome una lista de oponentes en el torneo; cada oponente se define como una tupla que consiste en una `CreatureFactory` y una `BattleStrategy`.
+  - haga que cada oponente luche contra todos los demás oponentes.
+  - organice cada lucha usando la estrategia asociada de cada Criatura.
+  - maneje correctamente las tuplas Criatura-estrategia inválidas.
+
+
+
+Durante la evaluación, es posible que se te pida explicar:
+ los patrones de diseño explorados en este proyecto.
+  Concéntrate en comprender los conceptos, no solo en la implementación.
+
+[Fin del contenido del archivo]

@@ -1,0 +1,191 @@
+
+#### Parte I: El Alambique ####
+
+# 1º elements.py :
+
+Una función create_fire() que simplemente devuelve la cadena "Fire element created".
+Una función create_water() que simplemente devuelve la cadena "Water element created".
+
+# 2º alchemy/elements.py:
+
+Una función create_earth() que devuelve "Earth element created".
+Una función create_air() que devuelve "Air element created".
+
+# 3º alchemy/__init__.py contendrá:
+
+importar parcialmente el módulo alchemy. Ver ft_alembic_4.py.
+
+
+**Crear 6 scripts de prueba:**
+
+ft_alembic_0.py usará la estructura import ... para acceder directamente a elements.py y luego crear fuego.
+
+ft_alembic_1.py usará from ... import ... para acceder directamente a elements.py y crear agua.
+
+   **a partir de este pasa por init**
+ft_alembic_2.py usará import ... para acceder directamente a alchemy/elements.py y crear tierra. 
+
+ft_alembic_3.py usará from ... import ... para acceder directamente a alchemy/elements.py y crear aire.
+
+ft_alembic_4.py usará import alchemy para acceder al módulo alchemy y luego crear aire. La función create_earth() no estará expuesta a través de la interfaz del módulo y lanzará una excepción al ser llamada (puedes capturar la excepción o no, solo con fines pedagógicos). También aparecerá un error de mypy, nuevamente a propósito.
+
+ft_alembic_5.py usará from alchemy import ... para acceder al módulo alchemy y luego crear aire.
+
+
+
+#### Parte II: Destilación ####
+importación anidada: importacion códigos lejanos desde archivos distantes.
+
+alchemy/potions.py contendrá:
+
+Una función healing_potion() que devuelve la cadena "Healing potion brewed with ’[elemento tierra creado]’ and ’[elemento aire creado]”.
+Una función strength_potion() que devuelve "Strength potion brewed with ’[elemento fuego creado]’ and ’[elemento agua creado]”.
+
+Crear 4 scripts de prueba:
+
+Para comprobar estas nuevas funcionalidades, crea los dos scripts siguientes:
+
+ft_distillation_0.py usará from ... import ... para acceder directamente a alchemy/potions.py y luego preparar ambas pociones.
+
+ft_distillation_1.py usará import alchemy para acceder al módulo alchemy, luego preparar la poción de fuerza original y la poción especial heal() (un alias de la poción de curación). Deberás mejorar tu __init__.py.
+
+Ejemplo
+
+IV.3 Parte III: La Gran Transmutación
+Comprende el antiguo debate entre importaciones absolutas y relativas: dos caminos diferentes para alcanzar la misma fórmula mágica.
+
+Mejoremos una vez más nuestra arquitectura y añadamos:
+
+alchemy/transmutation/recipes.py contendrá:
+
+Una función lead_to_gold() que devuelve la cadena "Recipe transmuting Lead to Gold: brew ’[aire creado]’ and ’[poción de fuerza creada]’ mixed with ’[fuego creado]’”.
+
+Al menos una importación absoluta y una relativa.
+
+Crea tres scripts de prueba para verificar que todo se importa correctamente:
+
+ft_transmutation_0.py usará import ... para acceder directamente a alchemy/transmutation/recipes.py y lograr la transformación de plomo en oro.
+
+ft_transmutation_1.py usará import ... para importar directamente el módulo transmutation y lograr la transformación.
+
+ft_transmutation_2.py usará import ... para importar directamente el módulo alchemy y lograr la transformación.
+
+Puede que necesites crear o actualizar algunos archivos adicionales para completar estos scripts.
+
+Ejemplo
+
+Pregunta final: ¿Cuándo debe un alquimista usar rutas absolutas vs rutas relativas?
+
+IV.4 Parte IV: Evita la Explosión
+Aprende a identificar y romper la maldición explosiva de la dependencia circular, que ocurre cuando los módulos intentan invocarse entre sí en un bucle infinito, amenazando con destruir tu laboratorio.
+
+Finalmente añadiremos estos últimos componentes:
+
+alchemy/grimoire/light_spellbook.py contendrá:
+
+Una función light_spell_allowed_ingredients() que devuelve una lista de ingredientes permitidos para magia de luz, por ejemplo ["earth", "air", "fire", "water"].
+
+Una función light_spell_record(spell_name: str, ingredients: str) que devuelve una cadena indicando si el hechizo se registra o se rechaza. La decisión proviene de la función de validación descrita abajo.
+
+alchemy/grimoire/light_validator.py contendrá:
+
+Una función validate_ingredients(ingredients: str) que devuelve una cadena con los ingredientes y la palabra "VALID" o "INVALID". Los ingredientes son válidos si incluyen al menos uno de los ingredientes permitidos por el libro de hechizos (sin distinción de mayúsculas/minúsculas).
+
+Ahora duplica ambos archivos para obtener dark_spellbook.py y dark_validator.py, y cambia también los nombres de las funciones. Supongamos que la magia oscura usa los siguientes ingredientes: "bats", "frogs", "arsenic", "eyeball".
+
+Es hora de probar algunos hechizos. Crea dos scripts para demostrar que la magia de luz evita dependencias circulares y explosiones en el laboratorio, y que la magia oscura es peligrosa y explota debido a dependencias circulares:
+
+ft_kaboom_0.py accederá directamente al módulo grimoire y luego registrará un hechizo de luz, sin problemas. Hay múltiples formas de evitar dependencias circulares; tú eliges una. Prepárate para explicar los diferentes enfoques durante la evaluación.
+
+ft_kaboom_1.py accederá secretamente a dark_spellbook.py directamente e intentará registrar un hechizo oscuro. Esto debe fallar y lanzar una excepción (puedes capturarla o no, solo con fines pedagógicos), indicando que tu laboratorio alquímico acaba de explotar.
+
+Ejemplo
+
+Explicación de los conceptos pedidos en cada parte
+Parte I (El Alambique) – Mecanismos básicos de importación
+Uso de import módulo vs from módulo import función para acceder a funciones definidas en archivos .py.
+
+Importación de módulos locales desde el mismo directorio o desde subpaquetes.
+
+Control de la interfaz de un paquete mediante __init__.py: qué funciones quedan expuestas al hacer import paquete.
+
+Manejo de excepciones al intentar acceder a algo no expuesto.
+
+Errores de tipo estático (mypy) intencionales.
+
+Parte II (Destilación) – Importaciones anidadas y alias
+Importación dentro de un subpaquete (ej. alchemy/potions.py) usando funciones definidas en otros módulos del mismo paquete.
+
+Exposición de funciones a nivel de paquete mediante __init__.py para que estén disponibles directamente con import alchemy.
+
+Creación de alias (ej. heal = healing_potion) dentro del __init__.py.
+
+Parte III (La Gran Transmutación) – Importaciones absolutas vs relativas
+Importación absoluta: ruta completa desde el directorio raíz del proyecto (ej. from alchemy.elements import create_air).
+
+Importación relativa: usa puntos . para referirse al mismo paquete o al padre (ej. from .elements import create_air o from ..elements import create_earth).
+
+Diferentes niveles de entrada: ejecutar scripts que importan desde diferentes profundidades (directamente el archivo recipes.py, el submódulo transmutation, o solo el paquete alchemy).
+
+Creación de __init__.py en subpaquetes para permitir importaciones directas.
+
+Parte IV (Evita la Explosión) – Dependencias circulares y cómo evitarlas
+Dependencia circular: cuando dos módulos se importan mutuamente, causando un ImportError.
+
+Formas de evitarlas:
+
+Retrasar la importación (dentro de la función, no al inicio).
+
+Mover la importación al final del módulo.
+
+Usar import module en lugar de from module import name.
+
+Rediseñar la estructura para que la dependencia sea unidireccional.
+
+Demostración práctica: un caso que funciona (luz) y otro que falla (oscuridad) por la dependencia circular.
+
+Solución de los ejercicios (código de todos los archivos)
+A continuación se muestra la estructura completa de directorios y archivos necesarios.
+
+Estructura de archivos
+text
+.
+
+├── ft_alembic_0.py
+├── ft_alembic_1.py
+├── ft_alembic_2.py
+├── ft_alembic_3.py
+├── ft_alembic_4.py
+├── ft_alembic_5.py
+├── ft_distillation_0.py
+├── ft_distillation_1.py
+├── ft_kaboom_0.py
+├── ft_kaboom_1.py
+├── ft_transmutation_0.py
+├── ft_transmutation_1.py
+├── ft_transmutation_2.py
+├── elements.py
+└── alchemy/
+    ├── __init__.py
+    ├── elements.py
+    ├── potions.py
+    ├── grimoire/
+    │   ├── __init__.py
+    │   ├── light_spellbook.py
+    │   ├── light_validator.py
+    │   ├── dark_spellbook.py
+    │   └── dark_validator.py
+    └── transmutation/
+        ├── __init__.py
+        └── recipes.py
+
+
+
+Respuesta a la pregunta final de la Parte III
+¿Cuándo debe un alquimista usar rutas absolutas vs rutas relativas?
+
+Rutas absolutas: son más explícitas y portables. Se recomiendan cuando el módulo se usa desde diferentes lugares o cuando la estructura del paquete es estable. Son más fáciles de leer y refactorizar. Se usan típicamente en scripts de nivel superior o en módulos que se ejecutan directamente.
+
+Rutas relativas: son útiles dentro de un paquete para evitar escribir el nombre completo del paquete, especialmente si el paquete puede ser renombrado o movido. Pero son frágiles si se reorganiza la estructura interna. No funcionan en scripts ejecutados directamente (__name__ == "__main__"). Se recomiendan para importaciones entre módulos hermanos dentro del mismo paquete cuando la jerarquía es profunda y no se espera que cambie.
+
+En resumen: absolutas para claridad y robustez en la interfaz pública; relativas para conveniencia interna dentro de un paquete bien encapsulado.
