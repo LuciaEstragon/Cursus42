@@ -1,8 +1,0 @@
-WIDTH=15
-HEIGHT=15
-ENTRY=1,1
-EXIT=10,13
-OUTPUT_FILE=maze.txt
-PERFECT=True
-# SEED could be None, False or number
-SEED=None
