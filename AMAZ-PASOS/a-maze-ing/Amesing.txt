@@ -1,0 +1,75 @@
+0 S E N
+0 0 0 0 - 0 = ABIERTO TODO - 42
+0 0 0 1 - 1 = Cerrado norte
+0 0 1 0 - 2 = Cerrado este
+0 0 1 1 - 3 = Cerrado 
+0 1 0 0 - 4
+0 1 0 1 - 5
+0 1 1 0 - 6
+0 1 1 1 - 7
+1 0 0 0 - 8
+1 0 0 1 - 9 
+1 0 1 0 - A 
+1 0 1 1 - B 
+1 1 0 0 - C
+1 1 0 1 - D
+1 1 1 0 - E
+1 1 1 1 - F = CLOSE TODO
+
+
+LISTA RESTRICCIONES
+- Muro periferico
+    ESQUINA SUPERIOR IZQUIERDA - Validos: 9, B, D
+    ESQUINA SUPERIOR DERECHA - Validos: 3, 7, B
+    ESQUINA INFERIOR IZQUIERDA - Validos: C, D, E
+    ESQUINA INFERIOR DERECHA - Validos: 6, 7, E
+    MURO SUPERIOR - 1, 3, 5, 7, 9, B, D
+    MURO IZQUIERDO - 8, 9, A, B, C, D, E
+    MURO INFERIOR - 4, 5, 6, 7, C, D, E
+    MURO DERECHO - 2, 3, 6, 7, A, B, E
+INVERSOS:
+1 -> 
+    
+DIBUJAR EL 42
+- Posicion central - cood @ (width/2, HEIGHT/2)   --> [ (width/2) - 3, (HEIGHT/2) - 2) ]  = 0
+- Ocupa 7X5   - x(horizontal=width)-y(vertical-height)
+
+#===###
+#=====#
+###@###
+==#=#==
+==#=###
+
+COMPPROBACION - RESOLVIENDO
+ -  Gusanito
+ - rellenar un array/lista con el camino resuuelto: SSESW
+ 
+ RESTRICCIONES A LA HORA DE ELEGIR
+ - Rellenamos laberinto de Nor-oeste hacia sur-este (vamos por lineas)
+ - La restricciones son:
+ el Este anterior(x-1) con Oeste ahora(x)
+ el Sur anterior(y-1) con Norte ahora(y)
+ - Lo que tenemos que hacer es restringir la lista de random (en bit)
+ bits NESO -> 
+ El primer 0 obliga al muro-norte, e segundo cero obliga al muro-oeste
+ El primer MAX obliga al muro-sur, e segundo MAX obliga al muro-este
+ 
+ 
+          NORTE
+      0,0  0,1  0,2
+OESTE 1,0  1,1  1,2  ESTE
+      2.0  2,1  2,2
+           SUR
+       
+lista = array[1, 2, 3, 4]
+
+
+Un laberinto perfecto (también llamado simplemente conexo o árbol en teoría de grafos) es aquel que cumple exactamente estas tres propiedades:
+
+1. Sin ciclos → No hay caminos cerrados. Es decir, no puedes partir de una celda, recorrer el laberinto y volver al punto de inicio sin repetir pasos. Esto se logra porque el conjunto de pasillos forma un árbol.
+2. Sin zonas inalcanzables → Desde cualquier celda (o punto) del laberinto se puede llegar a cualquier otra. No hay “islas” aisladas. Es decir, el grafo de pasillos es conexo.
+3. Un único camino entre dos puntos cualesquiera → Como consecuencia directa de las dos condiciones anteriores (grafo conexo + acíclico = árbol), existe exactamente una ruta posible entre cada par de celdas. Eso elimina la ambigüedad y hace que el laberinto tenga una solución única sin atajos ni bifurcaciones redundantes.
+
+En la práctica, un laberinto perfecto no tiene “cámaras cerradas” ni “bucle” que te permita rodear una zona. Resolverlo es simplemente seguir el único camino disponible desde la entrada a la salida, aunque este pueda ser muy retorcido.
+
+Esta definición contrasta con los laberintos braid (con ciclos, donde hay caminos alternativos) o con los laberintos con regiones desconectadas (que no serían resolubles desde toda celda).

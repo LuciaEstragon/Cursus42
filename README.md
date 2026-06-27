@@ -24,11 +24,11 @@ Estos proyectos son puramente académicos. Pertenecen al currículo del curso 42
 
 ## ✍️ Author 💭
 
-Todos los proyectos en este repositorio de GitHub están escritos por **Lucia Estrada** (lestrada-lucia.estradag@gmail.com). Kick-Off October 25.
+Todos los proyectos en este repositorio de GitHub están escritos por **Lucia Estrada** (lucia.estradag@gmail.com). lestrada. Kick-Off October 25.
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 # 📦 42 Readme Projects 🌀🚀 
 
@@ -56,4 +56,4 @@ These projects are purely academic. They belong to the curriculum of the 42code 
 
 ## ✍️ Author 💭
 
-All projects on this GitHub repository are written by **Lucia Estrada** (lestrada-lucia.estradag@gmail.com).  Kick-Off October 25.
+All projects on this GitHub repository are written by **Lucia Estrada** (lucia.estradag@gmail.com). lestrada. Kick-Off October 25.

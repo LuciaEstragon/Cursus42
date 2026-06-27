@@ -1,0 +1,379 @@
+Claro, aquí tienes la traducción completa al español del archivo PDF proporcionado:
+
+---
+
+**[Nombre del archivo]: AMAZEING.pdf**
+
+**[Inicio del contenido del archivo]**
+
+===== Página 1 =====
+
+**A-Maze-ing** Esta es la manera
+
+**Resumen:** ¡Crea tu propio generador de laberintos y muestra su resultado!
+
+**Versión:** 2.1
+
+===== Página 2 =====
+
+1 Prólogo 2
+II Instrucciones para la IA 3
+III Instrucciones Comunes 5
+III.1 Reglas Generales 5
+III.2 Makefile 5
+III.3 Directrices Adicionales 6
+IV Parte Obligatoria 7
+IV.1 Resumen 7
+IV.2 Uso 7
+IV.3 Formato del archivo de configuración 7
+IV.4 Requisitos del Laberinto 8
+IV.5 Formato del Archivo de Salida 8
+V Representación Visual 10
+VI Requisitos de reutilización del código 13
+VII Requisitos del Readme 14
+VIII Bonificaciones 16
+IX Entregas y evaluación por pares 17
+
+===== Página 3 =====
+
+1
+
+## Capítulo I
+
+## Prólogo
+
+Los laberintos han fascinado a los humanos durante miles de años. Desde el legendario Laberinto de Knossos en la mitología griega, construido por Dédalo para encerrar al Minotauro, hasta los modernos libros de acertijos y videojuegos, los laberintos siempre han simbolizado el misterio, el desafío y el diseño ingenioso. En informática, la generación de laberintos es más que diversión: es una aplicación práctica de algoritmos, aleatoriedad y teoría de grafos. Algunos algoritmos famosos utilizados para la generación de laberintos, como Prim, Kruskal o el backtracking recursivo, también se utilizan en problemas del mundo real como el diseño de redes o la generación procedural de contenido. Es interesante notar que los laberintos perfectos (con un camino único entre dos puntos cualesquiera) están directamente relacionados con los árboles de expansión en teoría de grafos. Construir un laberinto, especialmente uno que puedas visualizar y compartir, es una excelente manera de explorar cómo las computadoras pueden crear estructura a partir del caos, y divertirse un poco mientras se hace.
+
+"Un laberinto no es un lugar para perderse, sino un camino para ser encontrado."
+
+Anónimo
+
+===== Página 4 =====
+
+1
+
+## Capítulo II
+
+## Instrucciones para la IA
+
+## Contexto
+
+Durante tu viaje de aprendizaje, la IA puede ayudar con muchas tareas diferentes. Tómate el tiempo para explorar las diversas capacidades de las herramientas de IA y cómo pueden apoyar tu trabajo. Sin embargo, acércate siempre a ellas con precaución y evalúa críticamente los resultados. Ya sea código, documentación, ideas o explicaciones técnicas, nunca puedes estar completamente seguro de que tu pregunta estuviera bien formulada o de que el contenido generado sea preciso. Tus compañeros son un recurso valioso para ayudarte a evitar errores y puntos ciegos.
+
+## Mensaje principal
+
+Usa la IA para reducir tareas repetitivas o tediosas.
+- Desarrolla habilidades de prompting (tanto de codificación como no codificación) que beneficiarán tu carrera futura.
+- Aprende cómo funcionan los sistemas de IA para anticipar y evitar mejor los riesgos comunes, sesgos y problemas éticos.
+- Continúa construyendo tanto habilidades técnicas como interpersonales trabajando con tus compañeros.
+- Utiliza solo contenido generado por IA que entiendas completamente y del cual puedas responsabilizarte.
+
+## Reglas para el aprendiz:
+
+- Debes tomarte el tiempo para explorar las herramientas de IA y entender cómo funcionan, para poder usarlas éticamente y reducir sesgos potenciales.
+- Debes reflexionar sobre tu problema antes de hacer el prompting, esto te ayuda a escribir prompts más claros, detallados y relevantes utilizando vocabulario preciso.
+- Debes desarrollar el hábito de verificar, revisar, cuestionar y probar sistemáticamente cualquier cosa generada por IA.
+- Siempre debes buscar la revisión por pares, no confiar únicamente en tu propia validación.
+
+===== Página 5 =====
+
+1
+
+## Resultados de la fase:
+
+- Desarrollar habilidades de prompting tanto de propósito general como específicas de un dominio.
+- Aumentar tu productividad con el uso efectivo de herramientas de IA.
+- Continuar fortaleciendo el pensamiento computacional, la resolución de problemas, la adaptabilidad y la colaboración.
+
+## Comentarios y ejemplos:
+
+- Te encontrarás regularmente con situaciones (exámenes, evaluaciones, etc.) donde debas demostrar comprensión real. Prepárate, sigue construyendo tus habilidades técnicas e interpersonales.
+- Explicar tu razonamiento y debatir con compañeros a menudo revela lagunas en tu comprensión. Haz del aprendizaje entre pares una prioridad.
+- Las herramientas de IA a menudo carecen de tu contexto específico y tienden a proporcionar respuestas genéricas. Tus compañeros, que comparten tu entorno, pueden ofrecer información más relevante y precisa.
+- Donde la IA tiende a generar la respuesta más probable, tus compañeros pueden proporcionar perspectivas alternativas y matices valiosos. Confía en ellos como un punto de control de calidad.
+
+## Buena práctica:
+
+Le pregunto a la IA: "¿Cómo pruebo una función de ordenamiento?" Me da algunas ideas. Las pruebo y reviso los resultados con un compañero. Refinamos el enfoque juntos.
+
+## Mala práctica:
+
+Le pido a la IA que escriba una función completa, la copio y pego en mi proyecto. Durante la evaluación por pares, no puedo explicar lo que hace o por qué. Pierdo credibilidad y repruebo mi proyecto.
+
+## Buena práctica:
+
+Uso la IA para ayudar a diseñar un analizador sintáctico (parser). Luego repaso la lógica con un compañero. Detectamos dos errores y lo reescribimos juntos: mejor, más limpio y completamente entendido.
+
+## Mala práctica:
+
+Dejo que Copilot genere mi código para una parte clave de mi proyecto. Compila, pero no puedo explicar cómo maneja las tuberías (pipes). Durante la evaluación, no puedo justificarlo y repruebo mi proyecto.
+
+===== Página 6 =====
+
+1
+
+## Capítulo III
+
+## Instrucciones Comunes
+
+## III.1 Reglas Generales
+
+- Tu proyecto debe estar escrito en Python 3.10 o posterior.
+- Tu proyecto debe adherirse al estándar de codificación flake8.
+- Tus funciones deben manejar las excepciones adecuadamente para evitar fallos. Usa bloques try-except para gestionar errores potenciales. Prefiere administradores de contexto (context managers) para recursos como archivos o conexiones para asegurar una limpieza automática. Si tu programa falla debido a excepciones no manejadas durante la revisión, se considerará no funcional.
+- Todos los recursos (ej. manejadores de archivos, conexiones de red) deben gestionarse adecuadamente para prevenir fugas. Usa administradores de contexto cuando sea posible para un manejo automático.
+- Tu código debe incluir anotaciones de tipo (type hints) para los parámetros de función, tipos de retorno y variables donde sea aplicable (usando el módulo `typing`). Usa `mypy` para la verificación estática de tipos. Todas las funciones deben pasar `mypy` sin errores.
+- Incluye cadenas de documentación (docstrings) en funciones y clases siguiendo PEP 257 (ej. estilo Google o NumPy) para documentar el propósito, parámetros y retornos.
+
+## III.2 Makefile
+
+Incluye un Makefile en tu proyecto para automatizar tareas comunes. Debe contener las siguientes reglas (el `lint` obligatorio implica las banderas especificadas; se recomienda encarecidamente probar `--strict` para una verificación mejorada):
+
+- `install`: Instalar las dependencias del proyecto usando `pip`, `uv`, `pipx` o cualquier otro gestor de paquetes de tu elección.
+- `run`: Ejecutar el script principal de tu proyecto (ej. a través del intérprete de Python).
+- `debug`: Ejecutar el script principal en modo depuración usando el depurador incorporado de Python (ej. `pdb`).
+- `clean`: Eliminar archivos temporales o cachés (ej. `__pycache__`, `.mypy_cache`) para mantener limpio el entorno del proyecto.
+
+===== Página 7 =====
+
+1
+- `lint`: Ejecutar los comandos `flake8 .` y `mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs`
+- `lint-strict` (opcional): Ejecutar los comandos `flake8 .` y `mypy . --strict`
+
+## III.3 Directrices Adicionales
+
+- Crea programas de prueba para verificar la funcionalidad del proyecto (no se entregan ni califican). Usa frameworks como `pytest` o `unittest` para pruebas unitarias, cubriendo casos extremos.
+- Incluye un archivo `.gitignore` para excluir artefactos de Python.
+- Se recomienda usar entornos virtuales (ej. `venv` o `conda`) para el aislamiento de dependencias durante el desarrollo.
+
+Si se aplican requisitos adicionales específicos del proyecto, se indicarán inmediatamente debajo de esta sección.
+
+===== Página 8 =====
+
+## Capítulo IV Parte Obligatoria
+
+## IV.1 Resumen
+
+Implementarás un generador de laberintos en Python que toma un archivo de configuración, genera un laberinto, posiblemente perfecto (con un solo camino entre la entrada y la salida), y lo escribe en un archivo usando una representación de paredes en hexadecimal. También proporcionarás una representación visual del laberinto y organizarás tu código para que la lógica de generación pueda ser reutilizada más adelante.
+
+## IV.2 Uso
+
+Tu programa debe ejecutarse con el siguiente comando:
+
+`python3 a_maze_ing.py config.txt`
+
+`a_maze_ing.py` es tu archivo de programa principal. Debes usar este nombre.
+`config.txt` es el único argumento. Es un archivo de texto plano que define las opciones de generación del laberinto. Puedes usar un nombre de archivo diferente.
+
+Tu programa debe manejar todos los errores con gracia: configuración inválida, archivo no encontrado, sintaxis incorrecta, parámetros de laberinto imposibles, etc. Nunca debe fallar inesperadamente y siempre debe proporcionar un mensaje de error claro al usuario.
+
+## IV.3 Formato del archivo de configuración
+
+El archivo de configuración debe contener un par 'CLAVE=VALOR' por línea.
+
+Las líneas que comienzan con `#` son comentarios y deben ser ignoradas.
+
+Las siguientes claves son obligatorias:
+
+| Clave         | Descripción                               | Ejemplo       |
+| :------------ | :---------------------------------------- | :------------ |
+| WIDTH         | Ancho del laberinto (número de celdas)    | WIDTH=20      |
+| HEIGHT        | Alto del laberinto                        | HEIGHT=15     |
+| ENTRY         | Coordenadas de entrada (x,y)              | ENTRY=0,0     |
+| EXIT          | Coordenadas de salida (x,y)               | EXIT=19,14    |
+| OUTPUT_FILE   | Nombre del archivo de salida              | OUTPUT_FILE=maze.txt |
+| PERFECT       | ¿Es el laberinto perfecto?                | PERFECT=True  |
+
+===== Página 9 =====
+
+1
+
+Puedes añadir claves adicionales (ej. `seed`, `algorithm`, `display mode`) si es útil.
+
+Un archivo de configuración por defecto debe estar disponible en tu repositorio Git.
+
+## IV.4 Requisitos del Laberinto
+
+- El laberinto debe generarse aleatoriamente, pero se requiere reproducibilidad mediante una semilla (`seed`).
+- Cada celda del laberinto tiene entre 0 y 4 paredes, en cada punto cardinal (Norte, Este, Sur, Oeste).
+- El laberinto debe ser válido, lo que significa:
+  - La entrada y la salida existen, son diferentes y están dentro de los límites del laberinto.
+  - La estructura asegura conectividad total y no hay celdas aisladas (excepto el patrón '42', ver más abajo).
+  - Como la entrada y la salida son celdas específicas, debe haber paredes en los bordes externos.
+  - Tus datos generados deben ser coherentes: cada celda vecina debe tener la misma pared si corresponde. Ejemplo: está prohibido tener una primera celda con una pared en el lado este, y la segunda celda detrás de esa pared sin una pared en el lado oeste.
+- El laberinto no puede tener áreas grandes abiertas. Los corredores no pueden tener más de 2 celdas de ancho. Por ejemplo, puedes tener un área abierta de 2x3 o 3x2, pero nunca un área abierta de 3x3.
+- Cuando se represente visualmente (ver más abajo), el laberinto debe contener un "42" visible dibujado por varias celdas completamente cerradas.
+- Si la bandera `PERFECT` está activada, el laberinto debe contener exactamente un camino entre la entrada y la salida (es decir, debe ser un laberinto perfecto).
+
+[Imagen]
+
+- El patrón "42" puede omitirse en caso de que el tamaño del laberinto no lo permita (ej. demasiado pequeño). Imprime un mensaje de error en la consola en ese caso.
+
+## IV.5 Formato del Archivo de Salida
+
+El laberinto debe escribirse en el archivo de salida usando un dígito hexadecimal por celda, donde cada dígito codifica qué paredes están cerradas:
+
+| Bit   | Dirección |
+| :---- | :-------- |
+| 0 (LSB) | Norte     |
+| 1      | Este      |
+| 2      | Sur       |
+| 3      | Oeste     |
+
+===== Página 10 =====
+
+1
+Una pared cerrada establece el bit a 1, abierta significa 0.
+Ejemplo: `3` (binario 0011) significa que las paredes están abiertas hacia el sur y el oeste.
+O `A` (binario 1010) significa que las paredes este y oeste están cerradas.
+
+Las celdas se almacenan fila por fila, una fila por línea.
+
+Después de una línea vacía, los siguientes 3 elementos se insertan en el archivo de salida en 3 líneas:
+- las coordenadas de entrada,
+- las coordenadas de salida, y
+- el camino válido más corto desde la entrada hasta la salida, usando las cuatro letras N, E, S, W.
+
+Todas las líneas terminan con un `\n`
+
+En conjunto con su archivo de configuración específico, este archivo de salida podría ser probado automáticamente por una Moulinette. Además, se proporciona un script de validación con este asunto para controlar que el archivo de salida contenga datos coherentes.
+
+<center>Ejemplo de archivo de salida</center>
+
+===== Página 11 =====
+
+1
+
+## Capítulo V
+
+## Representación Visual
+
+Tu programa debe proporcionar una forma de visualizar el laberinto, ya sea mediante:
+
+- Representación ASCII en la terminal, o
+- Una pantalla gráfica usando la librería MiniLibX (MLX).
+
+La visualización debe mostrar claramente las paredes, la entrada, la salida y el camino solución.
+
+Las interacciones con el usuario deben estar disponibles, al menos para las siguientes tareas:
+
+- Regenerar un nuevo laberinto y mostrarlo.
+- Mostrar/Ocultar un camino válido más corto desde la entrada hasta la salida.
+- Cambiar los colores de las paredes del laberinto.
+- Opcional: establecer colores específicos para mostrar el patrón "42".
+
+Puedes añadir interacciones adicionales con el usuario.
+
+===== Página 12 =====
+
+Representación predeterminada del laberinto en terminal
+
+[Imagen]
+
+Diferente laberinto, camino más corto y colores de paredes
+
+===== Página 13 =====
+
+1: regenerar; 2: camino; 3: color; 4: salir
+
+<center>Representación del laberinto usando Mlx</center>
+
+===== Página 14 =====
+
+1
+
+## Capítulo VI
+
+## Requisitos de reutilización del código
+
+Debes implementar la generación del laberinto como una clase única (ej. 'MazeGenerator') dentro de un módulo independiente que pueda ser importado en un proyecto futuro.
+
+Debes proporcionar una documentación breve que describa cómo:
+
+- Instanciar y usar tu generador, con al menos un ejemplo básico.
+- Pasar parámetros personalizados (ej. tamaño, semilla).
+- Acceder a la estructura generada, y acceder al menos a una solución.
+
+El módulo del generador de laberintos permite el acceso a la estructura del laberinto, pero no es necesariamente el mismo formato que el archivo de salida.
+
+Este módulo reutilizable completo (código y documentación) debe estar disponible en un solo archivo adecuado para una instalación posterior mediante `pip`.
+
+Este paquete debe llamarse `mazegen-*` y el archivo debe ubicarse en la raíz de tu repositorio git.
+
+Se permiten extensiones tanto `.tar.gz` como `.whl`, según lo generado por la construcción estándar de un paquete de Python.
+
+Ejemplo de un nombre de archivo completo: `mazegen-1.0.0-py3-none-any.whl`.
+
+Debes proporcionar en tu repositorio Git todos los elementos necesarios para construir el paquete. Esto se solicitará durante la evaluación: en un virtualenv o equivalente, instala las herramientas necesarias y construye tu paquete nuevamente desde tus fuentes.
+
+El archivo `README.md` principal (que no es parte del módulo reutilizable) también debe contener esta documentación breve.
+
+===== Página 15 =====
+
+## Capítulo VII
+
+## Requisitos del Readme
+
+Se debe proporcionar un archivo `README.md` en la raíz de tu repositorio Git. Su propósito es permitir que cualquier persona no familiarizada con el proyecto (compañeros, personal, reclutadores, etc.) entienda rápidamente de qué trata el proyecto, cómo ejecutarlo y dónde encontrar más información sobre el tema.
+
+El `README.md` debe incluir al menos:
+
+- La primera línea debe estar en cursiva y decir: `This project has been created as part of the 42 curriculum by <login1>[, <login2>[, <login3>[...]]].`
+- Una sección "Description" que presente claramente el proyecto, incluyendo su objetivo y una visión general breve.
+- Una sección "Instructions" que contenga cualquier información relevante sobre compilación, instalación y/o ejecución.
+- Una sección "Resources" que enumere referencias clásicas relacionadas con el tema (documentación, artículos, tutoriales, etc.), así como una descripción de cómo se utilizó la IA, especificando para qué tareas y en qué partes del proyecto.
+
+Se pueden requerir secciones adicionales dependiendo del proyecto (ej. ejemplos de uso, lista de características, opciones técnicas, etc.).
+
+Cualquier adición requerida se enumerará explícitamente a continuación.
+
+- La estructura y formato completos de tu archivo de configuración.
+- El algoritmo de generación de laberintos que elegiste.
+- Por qué elegiste este algoritmo.
+- Qué parte de tu código es reutilizable y cómo.
+- Tu equipo y gestión del proyecto con:
+  - Los roles de cada miembro del equipo.
+
+===== Página 16 =====
+
+0
+- Tu planificación anticipada y cómo evolucionó hasta el final.
+- Qué funcionó bien y qué se podría mejorar.
+- ¿Has utilizado alguna herramienta específica? ¿Cuáles?
+
+Si implementas características avanzadas (múltiples algoritmos, opciones de visualización), descríbelas en este archivo `README.md`.
+
+[Imagen]
+
+Se recomienda el inglés; alternativamente, puedes usar el idioma principal de tu campus.
+
+===== Página 17 =====
+
+1
+
+## Capítulo VIII
+
+## Bonificaciones
+
+Puedes añadir varias bonificaciones a tu proyecto. Aquí hay ejemplos posibles:
+
+- Soporte para múltiples algoritmos de generación de laberintos.
+- Añadir animación durante la generación del laberinto.
+
+===== Página 18 =====
+
+## Capítulo IX
+
+## Entregas y evaluación por pares
+
+Entrega tu trabajo en tu repositorio Git como de costumbre. Solo el trabajo dentro de tu repositorio será evaluado durante la defensa. No dudes en verificar dos veces los nombres de tus archivos para asegurarte de que sean correctos.
+
+Durante la evaluación, ocasionalmente se puede solicitar una modificación breve del proyecto. Esto podría implicar un cambio menor de comportamiento, algunas líneas de código para escribir o reescribir, o una característica fácil de añadir.
+
+Si bien este paso puede no ser aplicable a todos los proyectos, debes estar preparado para ello si se menciona en las pautas de evaluación.
+
+Este paso tiene como objetivo verificar tu comprensión real de una parte específica del proyecto. La modificación se puede realizar en cualquier entorno de desarrollo que elijas (ej. tu configuración habitual), y debería ser factible en pocos minutos, a menos que se defina un marco de tiempo específico como parte de la evaluación. Se te puede pedir, por ejemplo, hacer una pequeña actualización en una función o script, modificar una pantalla, o ajustar una estructura de datos para almacenar nueva información, etc.
+
+Los detalles (alcance, objetivo, etc.) se especificarán en las pautas de evaluación y pueden variar de una evaluación a otra para el mismo proyecto.
+
+**[Fin del contenido del archivo]**
